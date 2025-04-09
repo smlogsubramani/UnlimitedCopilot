@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import "../styles/Footer.css"; // Create a separate CSS file for the footer if needed
@@ -31,9 +32,9 @@ const Footer = () => {
           <div className=" contact-info">
             <ul className=" quick-links">
               <li><a href="/" id="Headings">Quick Links</a></li><br />
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/service">Services</a></li>
+              <li><Link to="/" className="nav-link">Home</Link></li>
+              <li><Link to="/about" className="nav-link">About</Link></li>
+              <li><Link to="/service" className="nav-link">Services</Link></li>
             </ul>
           </div>
         </div>
