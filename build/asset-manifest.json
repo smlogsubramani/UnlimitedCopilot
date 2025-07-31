@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d23af63a.css",
+    "main.js": "/static/js/main.a1f70280.js",
+    "static/js/453.b7b931bd.chunk.js": "/static/js/453.b7b931bd.chunk.js",
+    "static/media/unlimitedAI.png": "/static/media/unlimitedAI.4543c28e8535328d122e.png",
+    "static/media/UBTI-Icons_v1_Solve-Cloud-Migration.svg": "/static/media/UBTI-Icons_v1_Solve-Cloud-Migration.7b2c98dd8f1517ed86b4e5a8534fd2eb.svg",
+    "static/media/UBTI-Icons_v1_Solve-Data-Integration.svg": "/static/media/UBTI-Icons_v1_Solve-Data-Integration.43932f070bf66fb6b94ae1e5d155e8ab.svg",
+    "static/media/UBTI-Icons_v1_Plan-Software-building.svg": "/static/media/UBTI-Icons_v1_Plan-Software-building.7de1d53f9570d3c3e0969953de1097b0.svg",
+    "static/media/UBTI-Icons_v1_Solve-App-Dev.svg": "/static/media/UBTI-Icons_v1_Solve-App-Dev.2463270bd05dff564f039237928588e7.svg",
+    "static/media/UBTI-Icons_v1_Solve-QA-Testing.svg": "/static/media/UBTI-Icons_v1_Solve-QA-Testing.6c31f080ae8adf91a665fc58e3716f9a.svg",
+    "static/media/UBTI-Icons_v1_Solve-Analytics.svg": "/static/media/UBTI-Icons_v1_Solve-Analytics.7e17e0a197f21d050743bc6162d201f3.svg",
+    "index.html": "/index.html",
+    "main.d23af63a.css.map": "/static/css/main.d23af63a.css.map",
+    "main.a1f70280.js.map": "/static/js/main.a1f70280.js.map",
+    "453.b7b931bd.chunk.js.map": "/static/js/453.b7b931bd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d23af63a.css",
+    "static/js/main.a1f70280.js"
+  ]
+}

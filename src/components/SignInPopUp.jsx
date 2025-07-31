@@ -100,7 +100,7 @@ const SignInPopup = ({ showSignIn, setShowSignIn }) => {
                   />
                   Remember me
                 </label>
-                <a href="#" className="forgot-password">Forgot password?</a>
+                <a className="forgot-password">Forgot password?</a>
               </div>
               
               {error && <p className="error-message">{error}</p>}

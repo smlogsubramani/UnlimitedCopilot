@@ -4,15 +4,12 @@ import "../styles/Usecase.css";
 import { 
   ArrowRight, 
   Code, 
-  FileText, 
-  Shield, 
-  Calendar, 
+  FileText,  
   Pill, 
   Headphones, 
   Plane, 
   UserPlus,
   Radio,
-  PartyPopper,
   LaptopMinimalCheck ,
   PackageOpen,
   Search
