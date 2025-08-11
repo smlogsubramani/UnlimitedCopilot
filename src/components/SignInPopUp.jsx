@@ -30,7 +30,7 @@ const SignInPopup = ({ showSignIn, setShowSignIn }) => {
     button.disabled = true;
     
     setTimeout(() => {
-      if (username === 'admin' && password === 'Password') {
+      if (username === 'admin' && password === 'UnlimitedAI@123') {
         setShowSignIn(false);
         setError('');
         navigate('/Usecase');
