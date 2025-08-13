@@ -84,7 +84,7 @@ const UseCase = () => {
         ],
         image: inventoryManagementImg,
         flowchart: "Trigger → AI Analysis → Process → Complete",
-        agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_inventoryManagementAssistant/webchat?__version__=2",
+        agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_inventoryManagementAssistant/webchat?__version__=2"
       }
     },
     {
@@ -130,7 +130,8 @@ const UseCase = () => {
           "Microsoft Outlook – For sending real-time status updates to customers."
         ],
         image: customerSupportImg,
-        flowchart: "Customer → Digital Form → Copilot Studio (Triage) → SharePoint Ticket Creation → AI Builder Classification → Power Automate Assignment → Officer Resolves (via SharePoint) → Customer Notified via Outlook"
+        flowchart: "Customer → Digital Form → Copilot Studio (Triage) → SharePoint Ticket Creation → AI Builder Classification → Power Automate Assignment → Officer Resolves (via SharePoint) → Customer Notified via Outlook",
+        agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_customerInquiryClarifier/webchat?__version__=2"
       }
     },
     {
