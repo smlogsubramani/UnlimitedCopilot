@@ -511,7 +511,48 @@ const UseCase = () => {
         image: emailSearchImg,
         agent: "https://copilotstudio.microsoft.com/environments/Default-008502d6-3f79-46f0-ab37-9354e3fe80ff/bots/cr28f_outlookPst/webchat?__version__=2"
       }
-    }
+    },
+{
+  id: "11",
+  title: "Inventory Voice Agent",
+  description: "An AI-powered assistant designed to streamline inventory management by answering stock-related queries and providing instant access to inventory data.",
+  link: "https://inventoryagent.netlify.app/",
+  icon: <FileText size={24} />,
+  color: "#8AA624",
+  category: "business",
+  details: {
+    overview: "An AI-powered assistant built to simplify inventory operations by providing quick, accurate responses to stock inquiries and real-time access to inventory records. It improves consistency, reduces search time, and centralizes inventory data for warehouse teams and supply chain managers.",
+    client: "Retail chains, warehouses, or supply chain departments",
+    challenges: [
+      "Manual Stock Checks: Staff spent excessive time verifying inventory levels across multiple systems.",
+      "Delayed Responses: Inventory queries from sales or logistics teams were answered slowly, impacting operations.",
+      "Fragmented Data Sources: Inventory data was spread across spreadsheets, ERPs, and siloed systems.",
+      "Inaccurate Stock Information: Lack of real-time updates led to errors in stock availability and forecasting."
+    ],
+    solutions: [
+      "Conversational Inventory Assistant: Responds to inventory-related queries through a chatbot interface with real-time data.",
+      "Automated Stock Lookup: Instantly retrieves stock levels, item locations, and reorder status from integrated systems.",
+      "Inventory Workflow Automation: Streamlines repetitive tasks like stock verification and reorder alerts.",
+      "Centralized Inventory Dashboard: Provides a unified view of inventory across locations and systems."
+    ],
+    features: [
+      "AI-Powered Inventory Query Resolution",
+      "Real-Time Access to Stock Levels",
+      "Integration with ERP or Inventory Management Systems",
+      "Automated Alerts for Low Stock and Reorders",
+      "Centralized Inventory Knowledge Base",
+      "Faster Decision-Making for Operations Teams"
+    ],
+    tools: [
+      "Django – For backend logic, API development, and inventory data handling.",
+      "HTML/CSS/JavaScript – For building a responsive and user-friendly frontend interface.",
+      "Supabase Integration – For secure access to inventory databases.",
+      "LLMs – For conversational query handling and natural language responses."
+    ],
+    // image: ,
+    flowchart: "User Submits Inventory Query → Python Backend Processes Request → Inventory Lookup in ERP → Relevant Data Fetched → Displayed via Streamlit Interface"
+  }
+}
   ];
 
   const filteredProducts = products.filter(product => {
