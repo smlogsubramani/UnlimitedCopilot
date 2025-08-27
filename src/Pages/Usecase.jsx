@@ -718,7 +718,7 @@ const UseCase = () => {
                   <p className="product-description">{product.description}</p>
                 </div>
                 <div className="product-buttons">
-                  {["04", "05", "06", "07", "08"].includes(product.id) && (
+                  {["04", "05", "06", "07", "08","11"].includes(product.id) && (
                     <button 
                       className="product-button" 
                       style={{backgroundColor: product.color, border: 'none'}}
@@ -733,7 +733,7 @@ const UseCase = () => {
                     onClick={() => {
                       console.log("Explore button clicked for:", product.title, "Navigating to:", product.link);
                       window.scrollTo(0, 0);
-                      if (["04", "05", "06", "07", "08"].includes(product.id)) {
+                      if (["04", "05", "06", "07", "08","11"].includes(product.id)) {
                         window.location.assign(product.link);
                       } else {
                         const { icon, ...serializableProduct } = product;
