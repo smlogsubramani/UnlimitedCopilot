@@ -13,6 +13,9 @@ import emailSearchImg from '../assets/images/Multilingual Email Search & Indexin
 import employeeonboardingImg from '../assets/images/Employee Onboarding Assistant.png';
 import prescriptionImg from '../assets/images/Prescription Refill Automation Assistant.png';
 import hardwareImg from '../assets/images/Hardware Support Assistant.png';
+import hospitalityavator from '../assets/images/Hospitality Avatar.png';
+import invoiceagent from '../assets/images/Invoice Agent.png';
+
 
 import { 
   ArrowRight, 
@@ -472,7 +475,7 @@ const UseCase = () => {
     },
     {
       id: "10",
-      title: "Multilingual Email Search & Indexing Assistant",
+      title: "Email Search & Indexing Assistant",
       description: "A powerful AI-driven assistant designed to enable multilingual natural language search across email archives.",
       link: "https://legal-edge-chatbot.streamlit.app/",
       icon: <Search size={24} />,
@@ -482,20 +485,20 @@ const UseCase = () => {
         overview: "A powerful AI-driven assistant designed to enable multilingual (Arabic & English) natural language search across email archives. It integrates with Microsoft Copilot Studio, Azure Cognitive Search, and Azure Blob Storage, ensuring efficient query processing, ranking, and structured result presentation for improved productivity and compliance.",
         client: "Government or Enterprise Organization",
         challenges: [
-          "Multilingual Query Support: Handling natural language queries in both Arabic and English accurately.",
+          "Query Support: Handling natural language queries in English accurately.",
           "Unstructured Data: Emails and attachments stored in PST files were difficult to search and process.",
           "Search Accuracy: Default search lacked ranking, relevance tuning, and contextual understanding.",
           "Data Integration: Need for continuous extraction and indexing of emails for up-to-date results."
         ],
         solutions: [
-          "Multilingual UI: Built with Copilot Studio or a custom app for Arabic and English support.",
+          "UI: Built with Copilot Studio or a custom app for English support.",
           "Smart Query Processing: Copilot refines natural language queries before sending to Azure Cognitive Search.",
           "Automated Email Extraction: Using Power Automate PST files imported to Outlook, emails and attachments converted into structured data.",
           "Cloud Storage & Indexing: Data stored in Azure Blob Storage and indexed regularly by Azure AI Search.",
           "Optimized Search Results: Implemented ranking and relevance tuning for precise results, displayed in a clear, structured format."
         ],
         features: [
-          "Arabic & English Support",
+          "English Support",
           "AI-Powered Query Refinement",
           "Automated Email & Attachment Extraction",
           "Real-Time Indexing with Azure Cognitive Search",
@@ -514,10 +517,55 @@ const UseCase = () => {
     },
 {
   id: "11",
+  title: "Hospitality Voice-Enabled Avatar Concierge",
+  description: "A voice-first, avatar-enabled concierge assistant designed specifically for the hospitality industry (hotels and resorts) to modernize guest support by logging service issues, checking request status, and closing tickets in ServiceNow—available 24/7, multilingual, and hands-free.",
+  link: "https://hospitality-agent.netlify.app/",  // Placeholder link
+  icon: <PackageOpen size={24} />,  // Example icon for support
+  color: "#2A72D6",
+  category: "hospitality",
+  details: {
+    overview: "This AI assistant uses Azure AI Foundry and GPT-4o to interpret guest requests in multiple languages, handle service ticket creation and updates in ServiceNow, and provide real-time status updates via a voice and avatar interface for seamless guest interactions.",
+    client: "Multi-property hotel groups and resorts focusing on enhanced guest support.",
+    challenges: [
+      "Fragmented support channels causing lost or delayed guest requests.",
+      "Slow response times hurting guest satisfaction and NPS scores.",
+      "Language and accessibility barriers for international and visually impaired guests.",
+      "Operational inefficiencies due to staff context switching between multiple systems."
+    ],
+    solutions: [
+      "Voice and avatar interface for natural, hands-free guest conversations.",
+      "AI intent understanding and orchestration with GPT-4o in Azure AI Foundry.",
+      "Full ServiceNow integration for ticket lifecycle management and auto-routing.",
+      "Real-time status tracking and notifications for guests and hotel staff.",
+      "Multilingual and accessible voice avatar support to enhance inclusivity."
+    ],
+    features: [
+      "Voice-enabled, avatar-based guest assistance",
+      "Multilingual support with real-time translation",
+      "ServiceNow ticket creation, updates, and closures",
+      "Real-time request status tracking and notifications",
+      "AI-powered intent recognition and workflow orchestration",
+      "Accessible and hands-free interface for all guests"
+    ],
+    tools: [
+      "Azure AI Foundry – For AI reasoning, orchestration, and GPT-4o integration",
+      "Azure Speech Avatar – For lifelike, lip-synced voice avatar conversations",
+      "ServiceNow APIs – For seamless ticket management integration",
+      "Frontend frameworks (React/Angular) – For tablet and mobile avatar UI",
+      "Multilingual NLP models – For supporting international guest languages"
+    ],
+    image: hospitalityavator,
+    // flowchart: "Guest Uses Voice-Avatar Interface → AI Processes Request with GPT-4o → Ticket Created/Updated in ServiceNow → Guest Receives Real-Time Status via Avatar Interface"
+    
+  
+  }
+},
+{
+  id: "12",
   title: "Inventory Voice Agent",
   description: "An AI-powered assistant designed to streamline inventory management by answering stock-related queries and providing instant access to inventory data.",
   link: "https://inventoryagent.netlify.app/",
-  icon: <FileText size={24} />,
+  icon: <PackageOpen size={24} />,
   color: "#8AA624",
   category: "business",
   details: {
@@ -552,7 +600,52 @@ const UseCase = () => {
     // image: ,
     flowchart: "User Submits Inventory Query → Python Backend Processes Request → Inventory Lookup in ERP → Relevant Data Fetched → Displayed via Streamlit Interface"
   }
+},
+{
+
+  id: "13",
+  title: "Late Fee Notification Agent",
+  description: "An automated agent that monitors customer fee due dates, sends reminders for upcoming late fees, and escalates overdue cases with detailed reports to regional managers.",
+  link: "https://copilotstudio.microsoft.com/",
+  icon: <FileText size={24} />,
+  color: "#FF9800",
+  category: "finance",
+  details: {
+    overview: "The Late Fee Notification Agent leverages Copilot Studio and Power Automate to track customer fee due dates, send proactive notifications to customers, and escalate overdue accounts to managers. It runs on daily and weekly recurrence triggers to ensure timely communication and effective fee collection.",
+    client: "Finance Teams, Billing Departments, and Regional Managers",
+    challenges: [
+      "Missed Fee Notifications: Customers often miss due dates due to lack of reminders.",
+      "Manual Tracking Effort: Teams spend significant time monitoring due dates across multiple systems.",
+      "Delayed Escalations: Overdue accounts beyond 60 days are not grouped or reported efficiently.",
+      "Inefficient Communication: Managers lack consolidated reports for quick decision-making."
+    ],
+    solutions: [
+      "Automated Customer Notifications: Daily reminders sent to customers whose due dates were 25 or 50 days ago.",
+      "Weekly Overdue Escalations: Automatically identifies customers with fees overdue by more than 60 days.",
+      "Manager-Level Reporting: Groups overdue customers by regional manager and generates CSV reports.",
+      "Streamlined Workflow: Eliminates manual tracking, ensures timely escalations, and improves fee recovery."
+    ],
+    features: [
+      "Daily Recurrence Check for Due Fees",
+      "Automated Email Notifications to Customers",
+      "Weekly Overdue Account Identification",
+      "CSV Report Generation for Managers",
+      "Escalation Emails with Attached Reports"
+    ],
+    tools: [
+      "Microsoft Copilot Studio – Conversational interface for fee-related queries.",
+      "Power Automate – Workflow automation for daily/weekly triggers and notifications.",
+      "Excel / SharePoint / Database – Source of customer fee records.",
+      "Outlook – Integrated email notifications for customers and managers."
+    ],
+    image: invoiceagent,
+    // flowchart: "Daily Trigger → Fetch Fee Data → Filter Customers (25/50 Days) → Notify Customers → Weekly Trigger → Fetch Data → Filter >60 Days → Group by Manager → Generate CSV → Email Report",
+    agent: "https://copilotstudio.microsoft.com/"
+
+  }
+
 }
+
   ];
 
   const filteredProducts = products.filter(product => {
@@ -718,7 +811,7 @@ const UseCase = () => {
                   <p className="product-description">{product.description}</p>
                 </div>
                 <div className="product-buttons">
-                  {["04", "05", "06", "07", "08","11"].includes(product.id) && (
+                  {["04", "05", "06", "07", "08","11","12"].includes(product.id) && (
                     <button 
                       className="product-button" 
                       style={{backgroundColor: product.color, border: 'none'}}
@@ -733,7 +826,7 @@ const UseCase = () => {
                     onClick={() => {
                       console.log("Explore button clicked for:", product.title, "Navigating to:", product.link);
                       window.scrollTo(0, 0);
-                      if (["04", "05", "06", "07", "08","11"].includes(product.id)) {
+                      if (["04", "05", "06", "07", "08","11","12"].includes(product.id)) {
                         window.location.assign(product.link);
                       } else {
                         const { icon, ...serializableProduct } = product;
