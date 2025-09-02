@@ -640,7 +640,7 @@ const UseCase = () => {
     ],
     image: invoiceagent,
     // flowchart: "Daily Trigger → Fetch Fee Data → Filter Customers (25/50 Days) → Notify Customers → Weekly Trigger → Fetch Data → Filter >60 Days → Group by Manager → Generate CSV → Email Report",
-      agent: "https://copilotstudio.microsoft.com/environments/Default-008502d6-3f79-46f0-ab37-9354e3fe80ff/bots/crd5b_invoiceReminderAssistant/webchat?__version__=2""
+      agent: "https://copilotstudio.microsoft.com/environments/Default-008502d6-3f79-46f0-ab37-9354e3fe80ff/bots/crd5b_invoiceReminderAssistant/webchat?__version__=2"
 
   }
 
