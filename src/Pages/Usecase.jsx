@@ -606,7 +606,7 @@ const UseCase = () => {
   id: "13",
   title: "Late Fee Notification Agent",
   description: "An automated agent that monitors customer fee due dates, sends reminders for upcoming late fees, and escalates overdue cases with detailed reports to regional managers.",
-  link: "https://copilotstudio.microsoft.com/",
+  link: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_invoiceReminderAssistant/webchat?__version__=2",
   icon: <FileText size={24} />,
   color: "#FF9800",
   category: "finance",
