@@ -10,20 +10,7 @@ const ProductDetails = () => {
   const navigate = useNavigate();
   const product = location.state?.product;
   const [isImagePopupOpen, setIsImagePopupOpen] = useState(false); // State for image popup
-
-  // const iconMap = {
-  //   "01": <PackageOpen size={24} />,
-  //   "02": <Headphones size={24} />,
-  //   "03": <FileText size={24} />,
-  //   "04": <UserPlus size={24} />,
-  //   "05": <Radio size={24} />,
-  //   "06": <LaptopMinimalCheck size={24} />,
-  //   "07": <PackageOpen size={24} />,
-  //   "08": <FileText size={24} />,
-  //   "09": <UserPlus size={24} />,
-  //   "10": <Pill size={24} />,
-  //   "11": <Search size={24} />
-  // };
+  const [flowStatus, setFlowStatus] = useState(null); // State to track flow trigger status
 
   // Scroll to top on component mount
   useEffect(() => {
@@ -55,6 +42,50 @@ const ProductDetails = () => {
   const toggleImagePopup = () => {
     setIsImagePopupOpen(!isImagePopupOpen);
   };
+
+  // Function to trigger Power Automate flow
+  const triggerPowerAutomateFlow = async () => {
+  setFlowStatus('Triggering flow...'); // Show loading state
+  try {
+    const flowUrl = 'https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/a41ae13c15704796ba28ee39b4bda14a/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=wTOBF80vYy5d4Uxvzmdyi2xxiGuaeYQ-IJE8L4G7w6Q';
+
+    const response = await fetch(flowUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({}),
+    });
+
+    const status = response.status;
+    const responseText = await response.text();
+    console.log('Response Status:', status);
+    console.log('Response Body:', responseText);
+
+    if (status === 200 || status === 202) {
+      try {
+        const responseJson = JSON.parse(responseText);
+        // Check for flow-specific error in the response body
+        if (responseJson.status === 'Failed' || responseJson.error) {
+          setFlowStatus(`Flow triggered but failed: ${responseJson.error?.message || 'Unknown error in flow execution'}`);
+        } else {
+          setFlowStatus('Flow triggered successfully!');
+        }
+      } catch (e) {
+        // Non-JSON response (e.g., empty or plain text) is common for manual triggers
+        setFlowStatus('Flow triggered successfully!');
+      }
+    } else {
+      setFlowStatus(`Failed to trigger flow. Status: ${status}. Details: ${responseText || 'No additional details'}`);
+    }
+  } catch (error) {
+    console.error('Request error:', error);
+    setFlowStatus(`Request error: ${error.message}. Likely CORS or network issue.`);
+  }
+
+  // Clear status message after 5 seconds
+  setTimeout(() => setFlowStatus(null), 5000);
+};
 
   if (!product) {
     return (
@@ -148,7 +179,21 @@ const ProductDetails = () => {
                   >
                     <i className="fas fa-arrow-left"></i> Back to Products
                   </button>
+                  {product.id === "14" && (
+                    <button
+                      className="btn btn-primary"
+                      onClick={triggerPowerAutomateFlow}
+                      style={{ marginLeft: '10px' }}
+                    >
+                      <i className="fas fa-play"></i> Trigger Flow
+                    </button>
+                  )}
                 </div>
+                {flowStatus && (
+                  <p className="flow-status" style={{ marginTop: '10px', color: flowStatus.includes('success') ? 'green' : 'red' }}>
+                    {flowStatus}
+                  </p>
+                )}
                 <div className="hero-stats">
                   <div className="stat">
                     <span className="stat-number">99%</span>
@@ -192,6 +237,7 @@ const ProductDetails = () => {
           </div>
         </section>
 
+        {/* Rest of the component remains unchanged */}
         <section id="details" className="section">
           <div className="container">
             <div className="section-header">
