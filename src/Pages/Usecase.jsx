@@ -15,6 +15,7 @@ import prescriptionImg from '../assets/images/Prescription Refill Automation Ass
 import hardwareImg from '../assets/images/Hardware Support Assistant.png';
 import hospitalityavator from '../assets/images/Hospitality Avatar.png';
 import invoiceagent from '../assets/images/Invoice Agent.png';
+import financialAdvisorImg from '../assets/images/TCW_RebalanceAgent_Architecture.png';
 
 
 import { 
@@ -641,6 +642,51 @@ const UseCase = () => {
     image: invoiceagent,
     // flowchart: "Daily Trigger → Fetch Fee Data → Filter Customers (25/50 Days) → Notify Customers → Weekly Trigger → Fetch Data → Filter >60 Days → Group by Manager → Generate CSV → Email Report",
       agent: "https://copilotstudio.microsoft.com/environments/Default-008502d6-3f79-46f0-ab37-9354e3fe80ff/bots/crd5b_invoiceReminderAssistant/webchat?__version__=2"
+
+  }
+
+},
+
+{
+
+  id: "14",
+  title: "Portfolio Rebalance Agent",
+  description: "The Autonomous Orchestrator Agent enables scalable, automated portfolio intelligence by coordinating sub-agents for goal tracking, market stress analysis, rebalancing, and client communication. It operates through scheduled and event-driven workflows, integrating with SQL and ML systems, excluding real-time trading and manual advisory tasks.",
+  link: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_portfolioManagement/webchat?__version__=2",
+  icon: <FileText size={24} />,
+  color: "#009688",
+  category: "finance",
+  details: {
+    overview: "The Autonomous Orchestrator Agent enables scalable, automated portfolio intelligence by coordinating sub-agents for goal tracking, market stress analysis, rebalancing, and client communication. It operates through scheduled and event-driven workflows, integrating with SQL and ML systems, excluding real-time trading and manual advisory tasks.",
+    client: "Portfolio Managers, Financial Advisors, and Wealth Management Teams",
+    challenges: [
+      "Time and labor-intensive: Require constant monitoring of multiple client portfolios for drift from target allocations.",
+      "Lack of integration: Lack of seamless integration between portfolio tracking, risk assessment, and order execution systems leads to errors, delays, and isolated decision-making.",
+      "Emotional biases and human oversight: May hinder disciplined actions, such as selling high-performers or incorporating volatility forecasts into adjustments.",
+      "Scalability issues : Managing diverse assets and client goals, with manual updates to holdings are prone to inaccuracies in dynamic markets."
+    ],
+    solutions: [
+      "Automated Trigger: Automates rebalancing with trigger to fetch client goals, eliminating manual oversight.",
+      "ML-Driven Analysis: Integrates asset retrieval, ML-driven volatility analysis, and trade execution for seamless, error-free processing.",
+      "Removes Bias: AI-generated, objective buy/sell suggestions based on market predictions.",
+      "Effortlessly Scalable: Auto-updates holdings and manages multiple clients/assets."
+    ],
+    features: [
+      "Automated triggers for proactive goal-based rebalancing",
+      "Real-time integration of market data, volatility predictions, and current prices for informed suggestions",
+      "Personalized email notifications with client/goal details, holdings summary, and reasoned rebalance actions",
+      "Secure order management with status tracking (open/complete) and automatic holdings updates",
+      "Scalable multi-agent design for handling multiple clients and assets efficiently"
+    ],
+    tools: [
+      "Microsoft Copilot Studio – For Multi Agent Orchestration.",
+      "Power Automate – Workflow automation for daily triggers.",
+      "SQL Server / Dataverse / Database – Source of client, market, and order details.",
+      "Python – ML Script for stock growth prediction."
+    ],
+    image: financialAdvisorImg,
+    // flowchart: "Daily Trigger → Fetch Fee Data → Filter Customers (25/50 Days) → Notify Customers → Weekly Trigger → Fetch Data → Filter >60 Days → Group by Manager → Generate CSV → Email Report",
+      agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_portfolioManagement/webchat?__version__=2"
 
   }
 
