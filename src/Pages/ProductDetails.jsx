@@ -130,11 +130,16 @@ const ProductDetails = () => {
       return (
         <ul className="solution-benefits">
           {data.map((item, index) => (
-            <li key={`${key}-${index}`}>
-              {React.cloneElement(icon, { key: index })}
-              {item}
-            </li>
-          ))}
+  <li key={`${key}-${index}`}>
+    {React.cloneElement(icon, { key: index })}
+    {key === 'solutions' ? (
+      <span dangerouslySetInnerHTML={{ __html: item }} />
+    ) : (
+      item
+    )}
+  </li>
+))}
+
         </ul>
       );
     }
@@ -341,27 +346,30 @@ const ProductDetails = () => {
                       {renderAsBullets(product.details?.solutions, 'solutions')}
                     </div>
                     <div className="solution-visual">
-                      <div className="automation-flow">
-                        <div className="flow-step">
-                          <ImagePlay />
-                          <span>Trigger</span>
-                        </div>
-                        <div className="flow-arrow">→</div>
-                        <div className="flow-step">
-                          <Brain />
-                          <span>AI Analysis</span>
-                        </div>
-                        <div className="flow-arrow">→</div>
-                        <div className="flow-step">
-                          <LucideSettings />
-                          <span>Process</span>
-                        </div>
-                        <div className="flow-arrow">→</div>
-                        <div className="flow-step">
-                          <SquareCheck />
-                          <span>Complete</span>
-                        </div>
-                      </div>
+                      <div className="solution-visual">
+  <div className="automation-flow">
+    <div className="flow-step">
+      <ImagePlay />
+      <span>Trigger</span>
+    </div>
+    <div className="flow-arrow">→</div>
+    <div className="flow-step">
+      <Brain />
+      <span>AI Analysis</span>
+    </div>
+    <div className="flow-arrow">→</div>
+    <div className="flow-step">
+      <LucideSettings />
+      <span>Process</span>
+    </div>
+    <div className="flow-arrow">→</div>
+    <div className="flow-step">
+      <SquareCheck />
+      <span>Complete</span>
+    </div>
+  </div>
+</div>
+
                     </div>
                   </div>
                 </div>
@@ -632,3 +640,4 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
+
