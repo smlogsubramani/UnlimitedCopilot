@@ -66,11 +66,11 @@ const UseCase = () => {
           "Inefficient Restocking: Poor order management results in mismatches, increased costs, and wasted resources."
         ],
         solutions: [
-          "Centralized Information Management: Access and manage detailed product and supplier records from a single interface.",
-          "Instant Inventory Updates: Easily add, edit, or remove product details for accurate and up-to-date stock data.",
-          "Real-Time Stock Monitoring: Gain clear visibility into stock levels to prevent shortages and overstock situations.",
-          "Automated Restocking: Generate and process purchase orders quickly, reducing manual efforts and delays.",
-          "Integrated Order Management: Sync customer orders with inventory updates to ensure accurate fulfillment and timely delivery."
+          "<strong>Centralized Information Managements</strong>: Access and manage detailed product and supplier records from a single interface.",
+          "<strong>Instant Inventory Updates</strong>: Easily add, edit, or remove product details for accurate and up-to-date stock data.",
+          "<strong>Real-Time Stock Monitoring</strong>: Gain clear visibility into stock levels to prevent shortages and overstock situations.",
+          "<strong>Automated Restocking</strong>: Generate and process purchase orders quickly, reducing manual efforts and delays.",
+          "<strong>Integrated Order Management</strong>: Sync customer orders with inventory updates to ensure accurate fulfillment and timely delivery."
         ],
         features: [
           "Real-Time Stock Updates",
@@ -111,12 +111,12 @@ const UseCase = () => {
           "Inflexible Workflows: Existing workflows couldn't adapt quickly to new products, territories, or query types."
         ],
         solutions: [
-          "Autonomous Query Handling: Built with Copilot Studio, the assistant triages and classifies tickets dynamically without manual intervention.",
-          "Automated Ticket Logging: Digital form submissions (e.g., disputes, requests) logged into SharePoint as structured tickets.",
-          "AI-Driven Classification: AI Builder categorizes tickets into relevant departments (Sales Ops, Accounts, Distribution).",
-          "Logic-Based Assignment: Power Automate routes tickets to appropriate officers based on predefined rules.",
-          "Knowledge Access: Officers retrieve SOPs and case history from SharePoint for faster resolution.",
-          "Customer Transparency: Automated personalized emails inform customers of ticket status and provide a direct point of contact."
+          "<strong>Autonomous Query Handling</strong>: Built with Copilot Studio, the assistant triages and classifies tickets dynamically without manual intervention.",
+          "<strong>Automated Ticket Logging</strong>: Digital form submissions (e.g., disputes, requests) logged into SharePoint as structured tickets.",
+          "<strong>AI-Driven Classification</strong>: AI Builder categorizes tickets into relevant departments (Sales Ops, Accounts, Distribution).",
+          "<strong>Logic-Based Assignment</strong>: Power Automate routes tickets to appropriate officers based on predefined rules.",
+          "<strong>Knowledge Access</strong>: Officers retrieve SOPs and case history from SharePoint for faster resolution.",
+          "<strong>Customer Transparency</strong>: Automated personalized emails inform customers of ticket status and provide a direct point of contact."
         ],
         features: [
           "Autonomous Query Triage via Copilot Studio",
@@ -155,11 +155,11 @@ const UseCase = () => {
           "Disconnected Processes: Multiple platforms and manual approvals slow down operations."
         ],
         solutions: [
-          "Simplified Machine Management: Quickly create and update vending machines with automated workflows.",
-          "Integrated Inventory & Pricing Sync: Keep stock, product details, and pricing accurate and updated in real time.",
-          "Data Management with SharePoint: Easily view and update machine and product details through SharePoint lists.",
-          "Trigger-Based Automation: Adding or updating data in Dataverse automatically triggers desktop flows for UI automation in your vending machine application.",
-          "Automated Approvals: Power Automate ensures smooth approval workflows and backend processing."
+          "<strong>Simplified Machine Management</strong>: Quickly create and update vending machines with automated workflows.",
+          "<strong>Integrated Inventory & Pricing Sync</strong>: Keep stock, product details, and pricing accurate and updated in real time.",
+          "<strong>Data Management with SharePoint</strong>: Easily view and update machine and product details through SharePoint lists.",
+          "<strong>Trigger-Based Automation</strong>: Adding or updating data in Dataverse automatically triggers desktop flows for UI automation in your vending machine application.",
+          "<strong>Automated Approvals</strong>: Power Automate ensures smooth approval workflows and backend processing."
         ],
         features: [
           "Create & Update Vending Machines",
@@ -196,10 +196,10 @@ const UseCase = () => {
           "Lack of Personalization: New hires often experience inconsistent and impersonal onboarding journeys."
         ],
         solutions: [
-          "Guided Conversational Onboarding: The assistant interacts with new hires, collecting accurate and complete data step by step.",
-          "Data Validation: Ensures secure and error-free validation of critical details like IDs, contact info, and educational background.",
-          "Secure Data Handling: All information is stored in a reliable database for easy access and integration.",
-          "Personalized Experience: AI-driven conversations make onboarding engaging and consistent."
+          "<strong>Guided Conversational Onboarding</strong>: The assistant interacts with new hires, collecting accurate and complete data step by step.",
+          "<strong>Data Validation</strong>: Ensures secure and error-free validation of critical details like IDs, contact info, and educational background.",
+          "<strong>Secure Data Handling</strong>: All information is stored in a reliable database for easy access and integration.",
+          "<strong>Personalized Experience</strong>: AI-driven conversations make onboarding engaging and consistent."
         ],
         features: [
           "Real-Time Data Collection & Validation",
@@ -237,10 +237,10 @@ const UseCase = () => {
           "Slow Reporting: Delays in producing reports can postpone vital safety recommendations, increasing operational risk."
         ],
         solutions: [
-          "Rapid Transcription: Convert ATC audio into text using OpenAI Whisper Model, supported by Pydub for audio handling.",
-          "AI-Driven Investigation: AI agents (CrewAI, LangChain) analyze conversations like relentless investigators to identify red flags and anomalies.",
-          "LLM-Powered Insights: Utilize LLAMA 3.1 for generating context-rich, actionable insights from transcripts.",
-          "Interactive Reporting: Deliver structured reports and visual insights through a Streamlit dashboard for ease of interpretation."
+          "<strong>Rapid Transcription</strong></strong>: Convert ATC audio into text using OpenAI Whisper Model, supported by Pydub for audio handling.",
+          "<strong>AI-Driven Investigation</strong></strong>: AI agents (CrewAI, LangChain) analyze conversations like relentless investigators to identify red flags and anomalies.",
+          "<strong>LLM-Powered Insights</strong></strong>: Utilize LLAMA 3.1 for generating context-rich, actionable insights from transcripts.",
+          "<strong>Interactive Reporting</strong></strong>: Deliver structured reports and visual insights through a Streamlit dashboard for ease of interpretation."
         ],
         features: [
           "Automated ATC Audio Transcription",
@@ -281,10 +281,10 @@ const UseCase = () => {
           "Service Center Identification: Quickly locating legal and technical nearby service centers for user convenience."
         ],
         solutions: [
-          "Automated Defect Analysis: Uses LLaMA 3 Vision Model to quickly analyze and identify hardware issues from uploaded images.",
-          "Streamlined Verification: Centralized data repository verifies service tags and warranty status for fast resolution.",
-          "Integrated Appointment Booking: Automates scheduling with available technicians for warranty-valid cases.",
-          "Service Center Identification: Employs web scraping to locate authorized nearby service centers for immediate support."
+          "<strong>Automated Defect Analysis</strong>: Uses LLaMA 3 Vision Model to quickly analyze and identify hardware issues from uploaded images.",
+          "<strong>Streamlined Verification</strong>: Centralized data repository verifies service tags and warranty status for fast resolution.",
+          "<strong>Integrated Appointment Booking</strong>: Automates scheduling with available technicians for warranty-valid cases.",
+          "<strong>Service Center Identification</strong>: Employs web scraping to locate authorized nearby service centers for immediate support."
         ],
         features: [
           "AI-Based Hardware Defect Detection from Images",
@@ -324,10 +324,10 @@ const UseCase = () => {
           "Inefficient Categorization: Need for smarter clustering of suppliers and products for strategic decisions."
         ],
         solutions: [
-          "Accurate Sales Forecasting: Leverages SARIMA and ML models for precise 12-month sales predictions.",
-          "Category & Product Insights: Detailed analytics on category and product-level performance to optimize inventory.",
-          "Supplier Clustering: K-Means and Hierarchical clustering for actionable supplier performance insights.",
-          "Interactive Dashboards: Streamlit-based visualizations for intuitive data exploration and decision-making."
+          "<strong>Accurate Sales Forecasting</strong>: Leverages SARIMA and ML models for precise 12-month sales predictions.",
+          "<strong>Category & Product Insights</strong>: Detailed analytics on category and product-level performance to optimize inventory.",
+          "<strong>Supplier Clustering</strong>: K-Means and Hierarchical clustering for actionable supplier performance insights.",
+          "<strong>Interactive Dashboards</strong>: Streamlit-based visualizations for intuitive data exploration and decision-making."
         ],
         features: [
           "AI-Powered Sales Forecasting (12 Months)",
@@ -366,10 +366,10 @@ const UseCase = () => {
           "Knowledge Fragmentation: Expertise scattered across individuals created inefficiencies and errors."
         ],
         solutions: [
-          "Conversational Legal Assistant: Handles legal queries through a chatbot interface for instant, accurate responses.",
-          "Automated Document Retrieval: Fetches and shares relevant legal documents stored in SharePoint for consistency and compliance.",
-          "Workflow Automation: Standardizes responses and streamlines access to frequently requested documents.",
-          "Time Optimization: Reduces repetitive tasks for legal staff, enabling focus on complex cases."
+          "<strong>Conversational Legal Assistant</strong>: Handles legal queries through a chatbot interface for instant, accurate responses.",
+          "<strong>Automated Document Retrieval</strong>: Fetches and shares relevant legal documents stored in SharePoint for consistency and compliance.",
+          "<strong>Workflow Automation</strong>: Standardizes responses and streamlines access to frequently requested documents.",
+          "<strong>Time Optimization</strong>: Reduces repetitive tasks for legal staff, enabling focus on complex cases."
         ],
         features: [
           "AI-Powered Legal Query Resolution",
@@ -451,10 +451,10 @@ const UseCase = () => {
           "Missed Refills: Patients frequently forget to reorder prescriptions on time."
         ],
         solutions: [
-          "User-Friendly Interface: Provides easy navigation and quick retrieval of prescription details.",
-          "Automated Prescription Handling: Uses AI Builder and Power Automate to fetch and verify prescription information.",
-          "24/7 Chatbot Assistance: Handles prescription-related queries instantly through conversational AI.",
-          "Automated Reminders: Sends notifications for upcoming refills, reducing missed medication."
+          "<strong>User-Friendly Interface</strong>: Provides easy navigation and quick retrieval of prescription details.",
+          "<strong>Automated Prescription Handling</strong>: Uses AI Builder and Power Automate to fetch and verify prescription information.",
+          "<strong>24/7 Chatbot Assistance</strong>: Handles prescription-related queries instantly through conversational AI.",
+          "<strong>Automated Reminders</strong>: Sends notifications for upcoming refills, reducing missed medication."
         ],
         features: [
           "AI-Powered Chatbot for Instant Support",
@@ -492,11 +492,11 @@ const UseCase = () => {
           "Data Integration: Need for continuous extraction and indexing of emails for up-to-date results."
         ],
         solutions: [
-          "UI: Built with Copilot Studio or a custom app for English support.",
-          "Smart Query Processing: Copilot refines natural language queries before sending to Azure Cognitive Search.",
-          "Automated Email Extraction: Using Power Automate PST files imported to Outlook, emails and attachments converted into structured data.",
-          "Cloud Storage & Indexing: Data stored in Azure Blob Storage and indexed regularly by Azure AI Search.",
-          "Optimized Search Results: Implemented ranking and relevance tuning for precise results, displayed in a clear, structured format."
+          "<strong>UI</strong>: Built with Copilot Studio or a custom app for English support.",
+          "<strong>Smart Query Processing</strong>: Copilot refines natural language queries before sending to Azure Cognitive Search.",
+          "<strong>Automated Email Extraction</strong>: Using Power Automate PST files imported to Outlook, emails and attachments converted into structured data.",
+          "<strong>Cloud Storage & Indexing</strong>: Data stored in Azure Blob Storage and indexed regularly by Azure AI Search.",
+          "<strong>Optimized Search Results</strong>: Implemented ranking and relevance tuning for precise results, displayed in a clear, structured format."
         ],
         features: [
           "English Support",
@@ -579,10 +579,10 @@ const UseCase = () => {
       "Inaccurate Stock Information: Lack of real-time updates led to errors in stock availability and forecasting."
     ],
     solutions: [
-      "Conversational Inventory Assistant: Responds to inventory-related queries through a chatbot interface with real-time data.",
-      "Automated Stock Lookup: Instantly retrieves stock levels, item locations, and reorder status from integrated systems.",
-      "Inventory Workflow Automation: Streamlines repetitive tasks like stock verification and reorder alerts.",
-      "Centralized Inventory Dashboard: Provides a unified view of inventory across locations and systems."
+      "<strong>Conversational Inventory Assistant</strong>: Responds to inventory-related queries through a chatbot interface with real-time data.",
+      "<strong>Automated Stock Lookup</strong>: Instantly retrieves stock levels, item locations, and reorder status from integrated systems.",
+      "<strong>Inventory Workflow Automation</strong>: Streamlines repetitive tasks like stock verification and reorder alerts.",
+      "<strong>Centralized Inventory Dashboard</strong>: Provides a unified view of inventory across locations and systems."
     ],
     features: [
       "AI-Powered Inventory Query Resolution",
@@ -621,10 +621,10 @@ const UseCase = () => {
       "Inefficient Communication: Managers lack consolidated reports for quick decision-making."
     ],
     solutions: [
-      "Automated Customer Notifications: Daily reminders sent to customers whose due dates were 25 or 50 days ago.",
-      "Weekly Overdue Escalations: Automatically identifies customers with fees overdue by more than 60 days.",
-      "Manager-Level Reporting: Groups overdue customers by regional manager and generates CSV reports.",
-      "Streamlined Workflow: Eliminates manual tracking, ensures timely escalations, and improves fee recovery."
+      "<strong>Automated Customer Notifications</strong></strong>: Daily reminders sent to customers whose due dates were 25 or 50 days ago.",
+      "<strong>Weekly Overdue Escalations</strong></strong>: Automatically identifies customers with fees overdue by more than 60 days.",
+      "<strong>Manager-Level Reporting</strong></strong>: Groups overdue customers by regional manager and generates CSV reports.",
+      "<strong>Streamlined Workflow</strong></strong>: Eliminates manual tracking, ensures timely escalations, and improves fee recovery."
     ],
     features: [
       "Daily Recurrence Check for Due Fees",
@@ -666,10 +666,10 @@ const UseCase = () => {
       "Scalability issues : Managing diverse assets and client goals, with manual updates to holdings are prone to inaccuracies in dynamic markets."
     ],
     solutions: [
-      "Automated Trigger: Automates rebalancing with trigger to fetch client goals, eliminating manual oversight.",
-      "ML-Driven Analysis: Integrates asset retrieval, ML-driven volatility analysis, and trade execution for seamless, error-free processing.",
-      "Removes Bias: AI-generated, objective buy/sell suggestions based on market predictions.",
-      "Effortlessly Scalable: Auto-updates holdings and manages multiple clients/assets."
+      "<strong>Automated Trigger</strong>: Automates rebalancing with trigger to fetch client goals, eliminating manual oversight.",
+      "<strong>ML-Driven Analysis</strong>: Integrates asset retrieval, ML-driven volatility analysis, and trade execution for seamless, error-free processing.",
+      "<strong>Removes Bias</strong>: AI-generated, objective buy/sell suggestions based on market predictions.",
+      "<strong>Effortlessly Scalable</strong>: Auto-updates holdings and manages multiple clients/assets."
     ],
     features: [
       "Automated triggers for proactive goal-based rebalancing",
