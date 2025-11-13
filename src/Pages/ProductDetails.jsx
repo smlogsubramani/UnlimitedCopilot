@@ -89,7 +89,7 @@ const ProductDetails = () => {
 
   if (!product) {
     return (
-      <div className="main-container">
+      <div className={`main-container ${product.id === "14" ? "main-container-fullwidth" : ""}`}>
         <Navbar />
         <div className="content-column">
           <section className="section">
@@ -154,7 +154,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="main-container">
+    <div className={`main-container ${product.id === "14" ? "main-container-fullwidth" : ""}`}>
       <div className="product-details-shape shape-1"></div>
       <div className="product-details-shape shape-2"></div>
       <div className="product-details-shape shape-3"></div>
@@ -614,25 +614,29 @@ const ProductDetails = () => {
         )}
       </div>
 
-      <div className="chat-column" id="live-demo">
-        <div className="chat-container">
-          <div className="chat-header">
-            <div className="chat-avatar">
-              <Bot />
-            </div>
-            <div className="chat-info">
-              <h4>AI Copilot Agent</h4>
-              <span className="status online">Online</span>
-            </div>
-          </div>
-          <div className="chat-iframe">
-            <iframe title='agent'
-              src={product.details?.agent}
-              style={{ width: '100%', height: '100%' }}
-            ></iframe>
-          </div>
+      {product.id !== "14" && (
+  <div className="chat-column" id="live-demo">
+    <div className="chat-container">
+      <div className="chat-header">
+        <div className="chat-avatar">
+          <Bot />
+        </div>
+        <div className="chat-info">
+          <h4>AI Copilot Agent</h4>
+          <span className="status online">Online</span>
         </div>
       </div>
+      <div className="chat-iframe">
+        <iframe
+          title='agent'
+          src={product.details?.agent}
+          style={{ width: '100%', height: '100%' }}
+        ></iframe>
+      </div>
+    </div>
+  </div>
+)}
+
 
       <Footer />
     </div>
@@ -640,4 +644,3 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
-
