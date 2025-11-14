@@ -396,7 +396,7 @@ body {
 .challenges {
   background-color: white;
   color: black;
-  position: relative;
+  position:relative;
   overflow: hidden;
 }
 
@@ -420,6 +420,10 @@ body {
   transform: translateY(20px);
   opacity: 0;
   animation: slideUp 0.6s ease forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .challenge-card:hover {
