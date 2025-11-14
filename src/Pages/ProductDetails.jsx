@@ -346,30 +346,40 @@ const ProductDetails = () => {
                       {renderAsBullets(product.details?.solutions, 'solutions')}
                     </div>
                     <div className="solution-visual">
-                      <div className="solution-visual">
-  <div className="automation-flow">
-    <div className="flow-step">
-      <ImagePlay />
-      <span>Trigger</span>
-    </div>
-    <div className="flow-arrow">→</div>
-    <div className="flow-step">
-      <Brain />
-      <span>AI Analysis</span>
-    </div>
-    <div className="flow-arrow">→</div>
-    <div className="flow-step">
-      <LucideSettings />
-      <span>Process</span>
-    </div>
-    <div className="flow-arrow">→</div>
-    <div className="flow-step">
-      <SquareCheck />
-      <span>Complete</span>
-    </div>
-  </div>
-</div>
+                      <div className="flow-row top-row">
 
+                        <div className="flow-step">
+                          <ImagePlay />
+                          <span>Trigger</span>
+                        </div>
+
+                        <div className="flow-arrow">→</div>
+
+                        {/* Wrap AI + Down Arrow */}
+                        <div className="vertical-group">
+                          <div className="flow-step">
+                            <Brain />
+                            <span>AI Analysis</span>
+                          </div>
+                          <div className="down-arrow">↓</div>
+                        </div>
+
+                      </div>
+
+                      <div className="flow-row bottom-row">
+
+                        <div className="flow-step">
+                          <SquareCheck />
+                          <span>Complete</span>
+                        </div>
+
+                        <div className="flow-arrow">←</div>
+
+                        <div className="flow-step">
+                          <LucideSettings />
+                          <span>Process</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
