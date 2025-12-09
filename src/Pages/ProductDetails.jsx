@@ -44,13 +44,37 @@ const ProductDetails = () => {
   };
 
   // Function to trigger Power Automate flow
-  const triggerPowerAutomateFlow = async () => {
-  setFlowStatus('Triggering flow...'); // Show loading state
-  try {
-    const flowUrl = 'https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/a41ae13c15704796ba28ee39b4bda14a/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=wTOBF80vYy5d4Uxvzmdyi2xxiGuaeYQ-IJE8L4G7w6Q';
+// Function to trigger Power Automate flow
+const triggerPowerAutomateFlow = async () => {
+  setFlowStatus('Triggering flow...');
 
-    const response = await fetch(flowUrl, {
+  // Dynamic URL based on product ID
+  const flowUrls = {
+    "14": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/a41ae13c15704796ba28ee39b4bda14a/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=wTOBF80vYy5d4Uxvzmdyi2xxiGuaeYQ-IJE8L4G7w6Q",
+    "15": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/0755ce18528a45c8b32126415d40aaa0/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_XFP8DULxUEi6blssXZ_XOG1xmKN4p3RXPBWB9dS1nc"
+  };
+
+  const flowUrl = flowUrls[product.id];
+  console.log('Triggering flow for URL:', flowUrl);
+  console.log('Product ID:', product.id);
+
+  if (!flowUrl) {
+    setFlowStatus('No demo flow configured for this product.');
+    setTimeout(() => setFlowStatus(null), 5000);
+    return;
+  }
+
+  try {
+    // Clean the URL - remove any trailing spaces
+    const cleanUrl = flowUrl.trim();
+    
+    // Test if it's a valid URL
+    console.log('Cleaned URL:', cleanUrl);
+    console.log('Is valid URL:', isValidUrl(cleanUrl));
+
+    const response = await fetch(cleanUrl, {
       method: 'POST',
+      mode: 'cors', // Add CORS mode
       headers: {
         'Content-Type': 'application/json',
       },
@@ -59,37 +83,37 @@ const ProductDetails = () => {
 
     const status = response.status;
     const responseText = await response.text();
-    console.log('Response Status:', status);
-    console.log('Response Body:', responseText);
+    console.log('Flow trigger response status:', status);
+    console.log('Flow trigger response text:', responseText);
 
     if (status === 200 || status === 202) {
-      try {
-        const responseJson = JSON.parse(responseText);
-        // Check for flow-specific error in the response body
-        if (responseJson.status === 'Failed' || responseJson.error) {
-          setFlowStatus(`Flow triggered but failed: ${responseJson.error?.message || 'Unknown error in flow execution'}`);
-        } else {
-          setFlowStatus('Flow triggered successfully!');
-        }
-      } catch (e) {
-        // Non-JSON response (e.g., empty or plain text) is common for manual triggers
-        setFlowStatus('Flow triggered successfully!');
-      }
+      setFlowStatus('Flow triggered successfully!');
     } else {
-      setFlowStatus(`Failed to trigger flow. Status: ${status}. Details: ${responseText || 'No additional details'}`);
+      setFlowStatus(`Failed with status: ${status}. Response: ${responseText.substring(0, 100)}...`);
     }
   } catch (error) {
-    console.error('Request error:', error);
-    setFlowStatus(`Request error: ${error.message}. Likely CORS or network issue.`);
+    console.error('Flow trigger error:', error);
+    setFlowStatus(`Error: ${error.message}`);
   }
 
-  // Clear status message after 5 seconds
+  // Auto-clear message after 5 seconds
   setTimeout(() => setFlowStatus(null), 5000);
 };
 
+// Helper function to validate URLs
+const isValidUrl = (string) => {
+  try {
+    new URL(string);
+    return true;
+  } catch (_) {
+    return false;
+  }
+};
+
+
   if (!product) {
     return (
-      <div className={`main-container ${product.id === "14" ? "main-container-fullwidth" : ""}`}>
+      <div className={`main-container ${(product.id === "14" || product.id === "15") ? "main-container-fullwidth" : ""}`}>
         <Navbar />
         <div className="content-column">
           <section className="section">
@@ -154,7 +178,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className={`main-container ${product.id === "14" ? "main-container-fullwidth" : ""}`}>
+    <div className={`main-container ${(product.id === "14" || product.id === "15") ? "main-container-fullwidth" : ""}`}>
       <div className="product-details-shape shape-1"></div>
       <div className="product-details-shape shape-2"></div>
       <div className="product-details-shape shape-3"></div>
@@ -184,7 +208,7 @@ const ProductDetails = () => {
                   >
                     <i className="fas fa-arrow-left"></i> Back to Products
                   </button>
-                  {product.id === "14" && (
+                  {(product.id === "14"||product.id === "15") && (
                     <button
                       className="btn btn-primary"
                       onClick={triggerPowerAutomateFlow}
@@ -624,7 +648,7 @@ const ProductDetails = () => {
         )}
       </div>
 
-      {product.id !== "14" && (
+      {(product.id !== "14" && product.id !== "15") && (
   <div className="chat-column" id="live-demo">
     <div className="chat-container">
       <div className="chat-header">
