@@ -16,6 +16,7 @@ import hardwareImg from '../assets/images/Hardware Support Assistant.png';
 import hospitalityavator from '../assets/images/Hospitality Avatar.png';
 import invoiceagent from '../assets/images/Invoice Agent.png';
 import financialAdvisorImg from '../assets/images/TCW_RebalanceAgent_Architecture.png';
+import marketcomparisonImg from '../assets/images/MarketSmartAlert.png';
 
 
 import { 
@@ -656,6 +657,7 @@ const UseCase = () => {
   icon: <FileText size={24} />,
   color: "#009688",
   category: "finance",
+  flowUrl:"https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/a41ae13c15704796ba28ee39b4bda14a/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=wTOBF80vYy5d4Uxvzmdyi2xxiGuaeYQ-IJE8L4G7w6Q",
   details: {
     overview: "The Autonomous Orchestrator Agent enables scalable, automated portfolio intelligence by coordinating sub-agents for goal tracking, market stress analysis, rebalancing, and client communication. It operates through scheduled and event-driven workflows, integrating with SQL and ML systems, excluding real-time trading and manual advisory tasks.",
     client: "Portfolio Managers, Financial Advisors, and Wealth Management Teams",
@@ -690,7 +692,51 @@ const UseCase = () => {
 
   }
 
+},
+{
+  id: "15",
+  title: "Market Alert and smart price agent​",
+  description: "The Market Alert and Smart Price Agent provides autonomous, scheduled analysis of brand's pricing against competitor data. It ingests CSV files, matches SKUs by product IDs, and calculates pricing gaps, percentage differences, and margin insights. Weekly reports with executive summaries, pricing recommendations, and discount strategies are automatically generated and sent via email using Outlook in Copilot Studio, ensuring error-free and consistent pricing insights.",
+  link: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_pricingAnalysis/webchat?__version__=2",
+  icon: <FileText size={24} />,
+  color: "#4CAF50",
+  category: "pricing-analysis",
+  flowUrl:"https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/0755ce18528a45c8b32126415d40aaa0/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_XFP8DULxUEi6blssXZ_XOG1xmKN4p3RXPBWB9dS1nc",
+  details: {
+    overview: "The Market Alert and Smart Price Agent provides autonomous, scheduled analysis of pricing against competitor data. It ingests CSV files, matches SKUs by product IDs, and calculates pricing gaps, percentage differences, and margin insights. Weekly reports with executive summaries, pricing recommendations, and discount strategies are automatically generated and sent via email using Outlook in Copilot Studio, ensuring error-free and consistent pricing insights.",
+    client: "Business Executives, Pricing Analysts, E-commerce Managers",
+    challenges: [
+      "Time-consuming manual analysis: Requires continuous comparison of pricing data across multiple competitors, which can be prone to human error.",
+      "Data inconsistency: Missing or incomplete data in pricing tables can hinder accurate analysis and decision-making.",
+      "Lack of automated reporting: Traditional pricing strategies rely on manual input, which delays decision-making and strategy adjustments.",
+      "Strategic misalignment: Without actionable insights, it can be difficult to make informed decisions about pricing, promotions, and discounts."
+    ],
+    solutions: [
+      "Autonomous Analysis: Analyzes competitor pricing autonomously, using exact CSV data without assumptions or missing values.",
+      "Automated Reporting: Generates an executive summary with strategic pricing recommendations and insights every week.",
+      "Promotions & Pricing Gaps: Identifies pricing gaps, compares promotional pricing, and provides margin insights to optimize pricing strategy.",
+      "Seamless Integration: Uses Copilot Studio’s tools (Outlook and Excel) for smooth report generation and distribution, ensuring no manual intervention is required."
+    ],
+    features: [
+      "Weekly autonomous analysis of competitive pricing and margin insights",
+      "SKU matching with product IDs for precise price comparison",
+      "Dynamic calculation of promotional price gaps and percentage differences",
+      "Automated report generation with Excel export and Outlook email integration",
+      "End-to-end weekly workflow from data analysis to email distribution",
+      "Clean, executive-level summaries with strategic recommendations for pricing and discounts"
+    ],
+    tools: [
+      "Microsoft Copilot Studio – For building and orchestrating the autonomous agent.",
+      "Power Automate – Workflow automation for scheduling and task triggers.",
+      "Excel – Report generation and insights table creation.",
+      "Outlook – Email automation for report distribution.",
+      "Python – For SKU matching and margin analysis scripts."
+    ],
+    image: marketcomparisonImg,
+    agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_pricingAnalysis/webchat?__version__=2"
+  }
 }
+
 
   ];
 
