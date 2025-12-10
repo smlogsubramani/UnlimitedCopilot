@@ -51,7 +51,7 @@ const triggerPowerAutomateFlow = async () => {
   // Dynamic URL based on product ID
   const flowUrls = {
     "14": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/a41ae13c15704796ba28ee39b4bda14a/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=wTOBF80vYy5d4Uxvzmdyi2xxiGuaeYQ-IJE8L4G7w6Q",
-    "15": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/0755ce18528a45c8b32126415d40aaa0/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_XFP8DULxUEi6blssXZ_XOG1xmKN4p3RXPBWB9dS1nc"
+    "15": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/37e8aca96a604b13bf711295e970502b/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=x4fjC0WA5i-cqdytZCQoglPgUgvSkcqyGe_yLM-XhHU"
   };
 
   const flowUrl = flowUrls[product.id];
