@@ -701,7 +701,7 @@ const UseCase = () => {
   icon: <FileText size={24} />,
   color: "#4CAF50",
   category: "pricing-analysis",
-  flowUrl:"https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/0755ce18528a45c8b32126415d40aaa0/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_XFP8DULxUEi6blssXZ_XOG1xmKN4p3RXPBWB9dS1nc",
+  flowUrl:"https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/37e8aca96a604b13bf711295e970502b/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=x4fjC0WA5i-cqdytZCQoglPgUgvSkcqyGe_yLM-XhHU",
   details: {
     overview: "The Market Alert and Smart Price Agent provides autonomous, scheduled analysis of pricing against competitor data. It ingests CSV files, matches SKUs by product IDs, and calculates pricing gaps, percentage differences, and margin insights. Weekly reports with executive summaries, pricing recommendations, and discount strategies are automatically generated and sent via email using Outlook in Copilot Studio, ensuring error-free and consistent pricing insights.",
     client: "Business Executives, Pricing Analysts, E-commerce Managers",
