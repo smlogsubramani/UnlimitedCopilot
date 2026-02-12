@@ -44,76 +44,77 @@ const ProductDetails = () => {
   };
 
   // Function to trigger Power Automate flow
-// Function to trigger Power Automate flow
-const triggerPowerAutomateFlow = async () => {
-  setFlowStatus('Triggering flow...');
+  // Function to trigger Power Automate flow
+  const triggerPowerAutomateFlow = async () => {
+    setFlowStatus('Triggering flow...');
 
-  // Dynamic URL based on product ID
-  const flowUrls = {
-    "14": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/a41ae13c15704796ba28ee39b4bda14a/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=wTOBF80vYy5d4Uxvzmdyi2xxiGuaeYQ-IJE8L4G7w6Q",
-    "15": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/37e8aca96a604b13bf711295e970502b/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=x4fjC0WA5i-cqdytZCQoglPgUgvSkcqyGe_yLM-XhHU"
+    // Dynamic URL based on product ID
+    const flowUrls = {
+      "14": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/a41ae13c15704796ba28ee39b4bda14a/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=wTOBF80vYy5d4Uxvzmdyi2xxiGuaeYQ-IJE8L4G7w6Q",
+      "15": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/37e8aca96a604b13bf711295e970502b/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=x4fjC0WA5i-cqdytZCQoglPgUgvSkcqyGe_yLM-XhHU",
+      "16": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/f0cee939fbd649498f749d14fc773390/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EXuIlVSM6TxcC5zlDHO1MX3cvA3ZNHP_TPczu62V5EI"
+    };
+
+    const flowUrl = flowUrls[product.id];
+    console.log('Triggering flow for URL:', flowUrl);
+    console.log('Product ID:', product.id);
+
+    if (!flowUrl) {
+      setFlowStatus('No demo flow configured for this product.');
+      setTimeout(() => setFlowStatus(null), 5000);
+      return;
+    }
+
+    try {
+      // Clean the URL - remove any trailing spaces
+      const cleanUrl = flowUrl.trim();
+
+      // Test if it's a valid URL
+      console.log('Cleaned URL:', cleanUrl);
+      console.log('Is valid URL:', isValidUrl(cleanUrl));
+
+      const response = await fetch(cleanUrl, {
+        method: 'POST',
+        mode: 'cors', // Add CORS mode
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+      });
+
+      const status = response.status;
+      const responseText = await response.text();
+      console.log('Flow trigger response status:', status);
+      console.log('Flow trigger response text:', responseText);
+
+      if (status === 200 || status === 202) {
+        setFlowStatus('Flow triggered successfully!');
+      } else {
+        setFlowStatus(`Failed with status: ${status}. Response: ${responseText.substring(0, 100)}...`);
+      }
+    } catch (error) {
+      console.error('Flow trigger error:', error);
+      setFlowStatus(`Error: ${error.message}`);
+    }
+
+    // Auto-clear message after 5 seconds
+    setTimeout(() => setFlowStatus(null), 5000);
   };
 
-  const flowUrl = flowUrls[product.id];
-  console.log('Triggering flow for URL:', flowUrl);
-  console.log('Product ID:', product.id);
-
-  if (!flowUrl) {
-    setFlowStatus('No demo flow configured for this product.');
-    setTimeout(() => setFlowStatus(null), 5000);
-    return;
-  }
-
-  try {
-    // Clean the URL - remove any trailing spaces
-    const cleanUrl = flowUrl.trim();
-    
-    // Test if it's a valid URL
-    console.log('Cleaned URL:', cleanUrl);
-    console.log('Is valid URL:', isValidUrl(cleanUrl));
-
-    const response = await fetch(cleanUrl, {
-      method: 'POST',
-      mode: 'cors', // Add CORS mode
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({}),
-    });
-
-    const status = response.status;
-    const responseText = await response.text();
-    console.log('Flow trigger response status:', status);
-    console.log('Flow trigger response text:', responseText);
-
-    if (status === 200 || status === 202) {
-      setFlowStatus('Flow triggered successfully!');
-    } else {
-      setFlowStatus(`Failed with status: ${status}. Response: ${responseText.substring(0, 100)}...`);
+  // Helper function to validate URLs
+  const isValidUrl = (string) => {
+    try {
+      new URL(string);
+      return true;
+    } catch (_) {
+      return false;
     }
-  } catch (error) {
-    console.error('Flow trigger error:', error);
-    setFlowStatus(`Error: ${error.message}`);
-  }
-
-  // Auto-clear message after 5 seconds
-  setTimeout(() => setFlowStatus(null), 5000);
-};
-
-// Helper function to validate URLs
-const isValidUrl = (string) => {
-  try {
-    new URL(string);
-    return true;
-  } catch (_) {
-    return false;
-  }
-};
+  };
 
 
   if (!product) {
     return (
-      <div className={`main-container ${(product.id === "14" || product.id === "15") ? "main-container-fullwidth" : ""}`}>
+      <div className={`main-container ${(product.id === "14" || product.id === "15" || product.id === "16") ? "main-container-fullwidth" : ""}`}>
         <Navbar />
         <div className="content-column">
           <section className="section">
@@ -122,7 +123,7 @@ const isValidUrl = (string) => {
                 <h2 className="section-title">Product Not Found</h2>
                 <p className="section-subtitle">Please go back and select a product.</p>
               </div>
-              <button 
+              <button
                 className="btn btn-primary"
                 onClick={() => navigate('/usecase')}
               >
@@ -139,7 +140,7 @@ const isValidUrl = (string) => {
   // Helper function to render array or string as bullet points with tick icon
   const renderAsBullets = (data, key) => {
     if (!data) return <p>No data available</p>;
-    
+
     const iconMap = {
       challenges: <MessageCircleWarning size={20} style={{ marginRight: '8px', color: '#EC7FA9' }} />,
       solutions: <SquareCheck size={20} style={{ marginRight: '8px', color: '#0b556a' }} />,
@@ -154,15 +155,15 @@ const isValidUrl = (string) => {
       return (
         <ul className="solution-benefits">
           {data.map((item, index) => (
-  <li key={`${key}-${index}`}>
-    {React.cloneElement(icon, { key: index })}
-    {key === 'solutions' ? (
-      <span dangerouslySetInnerHTML={{ __html: item }} />
-    ) : (
-      item
-    )}
-  </li>
-))}
+            <li key={`${key}-${index}`}>
+              {React.cloneElement(icon, { key: index })}
+              {key === 'solutions' ? (
+                <span dangerouslySetInnerHTML={{ __html: item }} />
+              ) : (
+                item
+              )}
+            </li>
+          ))}
 
         </ul>
       );
@@ -178,14 +179,14 @@ const isValidUrl = (string) => {
   };
 
   return (
-    <div className={`main-container ${(product.id === "14" || product.id === "15") ? "main-container-fullwidth" : ""}`}>
+    <div className={`main-container ${(product.id === "14" || product.id === "15" || product.id === "16") ? "main-container-fullwidth" : ""}`}>
       <div className="product-details-shape shape-1"></div>
       <div className="product-details-shape shape-2"></div>
       <div className="product-details-shape shape-3"></div>
       <div className="product-details-shape shape-4"></div>
-      
+
       <Navbar />
-      
+
       <div className="content-column">
         <section className="section hero">
           <div className="hero-background">
@@ -202,13 +203,13 @@ const isValidUrl = (string) => {
                 <h1 className="hero-title">{product.title}</h1>
                 <p className="hero-subtitle">{product.description}</p>
                 <div className="hero-buttons">
-                  <button 
+                  <button
                     className="btn btn-secondary"
                     onClick={() => navigate('/usecase')}
                   >
                     <i className="fas fa-arrow-left"></i> Back to Products
                   </button>
-                  {(product.id === "14"||product.id === "15") && (
+                  {(product.id === "14" || product.id === "15" || product.id === "16") && (
                     <button
                       className="btn btn-primary"
                       onClick={triggerPowerAutomateFlow}
@@ -329,263 +330,294 @@ const isValidUrl = (string) => {
         <section id="features" className="section">
           <div className="container">
             <div className="section-header">
-              <h2 className="section-title">Our Features</h2>
+              <h2 className="section-title">
+                {product.id === "16" ? "Our Intelligent Agents" : "Our Features"}
+              </h2>
               <p className="section-subtitle">
-                How our AI agent transforms challenges into opportunities
+                {product.id === "16"
+                  ? "Four specialized AI agents working together for intelligent stock orchestration"
+                  : "How our AI agent transforms challenges into opportunities"}
               </p>
             </div>
-            <div className="solutions-content">
-              <div className="solution-tabs">
-                <button className="tab-button" data-tab="automation">
-                  <i className="fa-regular fa-hand-point-right"></i>
-                  {product.details?.features[0] || 'Natural Language Search'}
-                </button>
-                <button className="tab-button" data-tab="integration">
-                  <i className="fa-regular fa-hand-point-right"></i>
-                  {product.details?.features[1] || 'Multilingual Support'}
-                </button>
-                <button className="tab-button" data-tab="support">
-                  <i className="fa-regular fa-hand-point-right"></i>
-                  {product.details?.features[2] || 'Compliance Integration'}
-                </button>
-                <button className="tab-button" data-tab="analytics">
-                  <i className="fa-regular fa-hand-point-right"></i>
-                  {product.details?.features[3] || 'Fast Indexing'}
-                </button>
-                <button className="tab-button" data-tab="analytics">
-                  <i className="fa-regular fa-hand-point-right"></i>
-                  {product.details?.features[4] || 'Fast Indexing'}
-                </button>
-                <button className="tab-button" data-tab="analytics">
-                  <i className="fa-regular fa-hand-point-right"></i>
-                  {product.details?.features[5] || 'Fast Indexing'}
-                </button>
+            {product.id === "16" ? (
+
+              // ✅ AGENTS GRID FOR SMART STOCK AGENT
+              <div className="agents-grid">
+                {product.details?.agents?.map((agent, index) => (
+                  <div key={index} className="agent-card fade-in">
+                    <img
+                      src={agent.image}
+                      alt={agent.name}
+                      className="agent-image"
+                      style={{
+                        width: "100%",
+                        height: "220px",
+                        objectFit: "contain",
+                        borderRadius: "10px",
+                        marginBottom: "15px"
+                      }}
+                    />
+                    <h3 className="agent-grid-title">{agent.name}</h3>
+                    <p  className="agent-grid-desc">{agent.description}</p>
+                  </div>
+                ))}
               </div>
-              <br />
-              <div className="tab-content" id="solutions">
-                <div className="tab-pane active" id="automation">
-                  <div className="solution-details">
-                    <div className="solution-text">
-                      <h2 className="section-title metric" style={{ textAlign: 'left' }}>Solutions</h2>
-                      {renderAsBullets(product.details?.solutions, 'solutions')}
-                    </div>
-                    <div className="solution-visual">
-                      <div className="flow-row top-row">
 
-                        <div className="flow-step">
-                          <ImagePlay />
-                          <span>Trigger</span>
-                        </div>
+            ) : (
 
-                        <div className="flow-arrow">→</div>
+              <div className="solutions-content">
+                <div className="solution-tabs">
+                  <button className="tab-button" data-tab="automation">
+                    <i className="fa-regular fa-hand-point-right"></i>
+                    {product.details?.features[0] || 'Natural Language Search'}
+                  </button>
+                  <button className="tab-button" data-tab="integration">
+                    <i className="fa-regular fa-hand-point-right"></i>
+                    {product.details?.features[1] || 'Multilingual Support'}
+                  </button>
+                  <button className="tab-button" data-tab="support">
+                    <i className="fa-regular fa-hand-point-right"></i>
+                    {product.details?.features[2] || 'Compliance Integration'}
+                  </button>
+                  <button className="tab-button" data-tab="analytics">
+                    <i className="fa-regular fa-hand-point-right"></i>
+                    {product.details?.features[3] || 'Fast Indexing'}
+                  </button>
+                  <button className="tab-button" data-tab="analytics">
+                    <i className="fa-regular fa-hand-point-right"></i>
+                    {product.details?.features[4] || 'Fast Indexing'}
+                  </button>
+                  <button className="tab-button" data-tab="analytics">
+                    <i className="fa-regular fa-hand-point-right"></i>
+                    {product.details?.features[5] || 'Fast Indexing'}
+                  </button>
+                </div>
+                <br />
+                <div className="tab-content" id="solutions">
+                  <div className="tab-pane active" id="automation">
+                    <div className="solution-details">
+                      <div className="solution-text">
+                        <h2 className="section-title metric" style={{ textAlign: 'left' }}>Solutions</h2>
+                        {renderAsBullets(product.details?.solutions, 'solutions')}
+                      </div>
+                      <div className="solution-visual">
+                        <div className="flow-row top-row">
 
-                        {/* Wrap AI + Down Arrow */}
-                        <div className="vertical-group">
                           <div className="flow-step">
-                            <Brain />
-                            <span>AI Analysis</span>
+                            <ImagePlay />
+                            <span>Trigger</span>
                           </div>
-                          <div className="down-arrow">↓</div>
+
+                          <div className="flow-arrow">→</div>
+
+                          {/* Wrap AI + Down Arrow */}
+                          <div className="vertical-group">
+                            <div className="flow-step">
+                              <Brain />
+                              <span>AI Analysis</span>
+                            </div>
+                            <div className="down-arrow">↓</div>
+                          </div>
+
                         </div>
 
-                      </div>
+                        <div className="flow-row bottom-row">
 
-                      <div className="flow-row bottom-row">
+                          <div className="flow-step">
+                            <SquareCheck />
+                            <span>Complete</span>
+                          </div>
 
-                        <div className="flow-step">
-                          <SquareCheck />
-                          <span>Complete</span>
-                        </div>
+                          <div className="flow-arrow">←</div>
 
-                        <div className="flow-arrow">←</div>
-
-                        <div className="flow-step">
-                          <LucideSettings />
-                          <span>Process</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="tab-pane" id="integration">
-                  <div className="solution-details">
-                    <div className="solution-text">
-                      <h3>Seamless System Integration</h3>
-                      <p>Connect all your business tools and platforms through a single intelligent interface, eliminating data silos and providing unified access to information.</p>
-                      <ul className="solution-benefits">
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          API-first architecture
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Real-time data synchronization
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Cross-platform compatibility
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Secure data exchange
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="solution-visual">
-                      <div className="integration-hub">
-                        <div className="hub-center">
-                          <i className="fas fa-robot"></i>
-                          <span>AI Agent</span>
-                        </div>
-                        <div className="hub-connection">
-                          <i className="fab fa-microsoft"></i>
-                          <span>Office 365</span>
-                        </div>
-                        <div className="hub-connection">
-                          <i className="fas fa-database"></i>
-                          <span>CRM</span>
-                        </div>
-                        <div className="hub-connection">
-                          <i className="fas fa-chart-bar"></i>
-                          <span>Analytics</span>
-                        </div>
-                        <div className="hub-connection">
-                          <i className="fas fa-cloud"></i>
-                          <span>Cloud Storage</span>
+                          <div className="flow-step">
+                            <LucideSettings />
+                            <span>Process</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="tab-pane" id="support">
-                  <div className="solution-details">
-                    <div className="solution-text">
-                      <h3>Always-On Customer Support</h3>
-                      <p>Provide consistent, high-quality customer support 24/7 with our AI agent that learns from every interaction to continuously improve response quality.</p>
-                      <ul className="solution-benefits">
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Instant response times
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Multilingual support
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Escalation handling
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Sentiment analysis
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="solution-visual">
-                      <div className="support-metrics">
-                        <div className="metric-card">
-                          <i className="fas fa-clock"></i>
-                          <span className="metric-number">&lt; 1s</span>
-                          <span className="metric-label">Response Time</span>
-                        </div>
-                        <div className="metric-card">
-                          <i className="fas fa-smile"></i>
-                          <span className="metric-number">98%</span>
-                          <span className="stat-label">Satisfaction</span>
-                        </div>
-                        <div className="metric-card">
-                          <i className="fas fa-globe"></i>
-                          <span className="metric-number">30+</span>
-                          <span className="metric-label">Languages</span>
+                  <div className="tab-pane" id="integration">
+                    <div className="solution-details">
+                      <div className="solution-text">
+                        <h3>Seamless System Integration</h3>
+                        <p>Connect all your business tools and platforms through a single intelligent interface, eliminating data silos and providing unified access to information.</p>
+                        <ul className="solution-benefits">
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            API-first architecture
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Real-time data synchronization
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Cross-platform compatibility
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Secure data exchange
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="solution-visual">
+                        <div className="integration-hub">
+                          <div className="hub-center">
+                            <i className="fas fa-robot"></i>
+                            <span>AI Agent</span>
+                          </div>
+                          <div className="hub-connection">
+                            <i className="fab fa-microsoft"></i>
+                            <span>Office 365</span>
+                          </div>
+                          <div className="hub-connection">
+                            <i className="fas fa-database"></i>
+                            <span>CRM</span>
+                          </div>
+                          <div className="hub-connection">
+                            <i className="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                          </div>
+                          <div className="hub-connection">
+                            <i className="fas fa-cloud"></i>
+                            <span>Cloud Storage</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="tab-pane" id="analytics">
-                  <div className="solution-details">
-                    <div className="solution-text">
-                      <h3>Predictive Analytics & Insights</h3>
-                      <p>Leverage AI-powered analytics to gain deep insights into your business operations, predict trends, and make data-driven decisions with confidence.</p>
-                      <ul className="solution-benefits">
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Predictive modeling
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Real-time dashboards
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Anomaly detection
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Custom reporting
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="solution-visual">
-                      <div className="analytics-chart">
-                        <div className="chart-header">
-                          <h4>Business Performance</h4>
-                          <span className="trend-up"><i className="fas fa-arrow-up"></i> +23%</span>
-                        </div>
-                        <div className="chart-bars">
-                          <div className="bar" style={{ height: '40%' }}></div>
-                          <div className="bar" style={{ height: '60%' }}></div>
-                          <div className="bar" style={{ height: '80%' }}></div>
-                          <div className="bar" style={{ height: '90%' }}></div>
-                          <div className="bar" style={{ height: '70%' }}></div>
-                          <div className="bar" style={{ height: '95%' }}></div>
+                  <div className="tab-pane" id="support">
+                    <div className="solution-details">
+                      <div className="solution-text">
+                        <h3>Always-On Customer Support</h3>
+                        <p>Provide consistent, high-quality customer support 24/7 with our AI agent that learns from every interaction to continuously improve response quality.</p>
+                        <ul className="solution-benefits">
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Instant response times
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Multilingual support
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Escalation handling
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Sentiment analysis
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="solution-visual">
+                        <div className="support-metrics">
+                          <div className="metric-card">
+                            <i className="fas fa-clock"></i>
+                            <span className="metric-number">&lt; 1s</span>
+                            <span className="metric-label">Response Time</span>
+                          </div>
+                          <div className="metric-card">
+                            <i className="fas fa-smile"></i>
+                            <span className="metric-number">98%</span>
+                            <span className="stat-label">Satisfaction</span>
+                          </div>
+                          <div className="metric-card">
+                            <i className="fas fa-globe"></i>
+                            <span className="metric-number">30+</span>
+                            <span className="metric-label">Languages</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="tab-pane" id="optimization">
-                  <div className="solution-details">
-                    <div className="solution-text">
-                      <h3>Optimized Performance</h3>
-                      <p>Advanced optimization techniques ensure maximum efficiency and performance across all operations.</p>
-                      <ul className="solution-benefits">
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Performance optimization
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Resource management
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Scalable architecture
-                        </li>
-                        <li>
-                          <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
-                          Quality assurance
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="solution-visual">
-                      <div className="support-metrics">
-                        <div className="metric-card">
-                          <i className="fas fa-tachometer-alt"></i>
-                          <span className="metric-number">99.9%</span>
-                          <span className="metric-label">Uptime</span>
+                  <div className="tab-pane" id="analytics">
+                    <div className="solution-details">
+                      <div className="solution-text">
+                        <h3>Predictive Analytics & Insights</h3>
+                        <p>Leverage AI-powered analytics to gain deep insights into your business operations, predict trends, and make data-driven decisions with confidence.</p>
+                        <ul className="solution-benefits">
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Predictive modeling
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Real-time dashboards
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Anomaly detection
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Custom reporting
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="solution-visual">
+                        <div className="analytics-chart">
+                          <div className="chart-header">
+                            <h4>Business Performance</h4>
+                            <span className="trend-up"><i className="fas fa-arrow-up"></i> +23%</span>
+                          </div>
+                          <div className="chart-bars">
+                            <div className="bar" style={{ height: '40%' }}></div>
+                            <div className="bar" style={{ height: '60%' }}></div>
+                            <div className="bar" style={{ height: '80%' }}></div>
+                            <div className="bar" style={{ height: '90%' }}></div>
+                            <div className="bar" style={{ height: '70%' }}></div>
+                            <div className="bar" style={{ height: '95%' }}></div>
+                          </div>
                         </div>
-                        <div className="metric-card">
-                          <i className="fas fa-rocket"></i>
-                          <span className="metric-number">2x</span>
-                          <span className="metric-label">Faster</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="tab-pane" id="optimization">
+                    <div className="solution-details">
+                      <div className="solution-text">
+                        <h3>Optimized Performance</h3>
+                        <p>Advanced optimization techniques ensure maximum efficiency and performance across all operations.</p>
+                        <ul className="solution-benefits">
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Performance optimization
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Resource management
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Scalable architecture
+                          </li>
+                          <li>
+                            <SquareCheck size={16} style={{ marginRight: '8px', color: '#0b556a' }} />
+                            Quality assurance
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="solution-visual">
+                        <div className="support-metrics">
+                          <div className="metric-card">
+                            <i className="fas fa-tachometer-alt"></i>
+                            <span className="metric-number">99.9%</span>
+                            <span className="metric-label">Uptime</span>
+                          </div>
+                          <div className="metric-card">
+                            <i className="fas fa-rocket"></i>
+                            <span className="metric-number">2x</span>
+                            <span className="metric-label">Faster</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </section>
 
@@ -648,28 +680,28 @@ const isValidUrl = (string) => {
         )}
       </div>
 
-      {(product.id !== "14" && product.id !== "15") && (
-  <div className="chat-column" id="live-demo">
-    <div className="chat-container">
-      <div className="chat-header">
-        <div className="chat-avatar">
-          <Bot />
+      {(product.id !== "14" && product.id !== "15" && product.id !== "16") && (
+        <div className="chat-column" id="live-demo">
+          <div className="chat-container">
+            <div className="chat-header">
+              <div className="chat-avatar">
+                <Bot />
+              </div>
+              <div className="chat-info">
+                <h4>AI Copilot Agent</h4>
+                <span className="status online">Online</span>
+              </div>
+            </div>
+            <div className="chat-iframe">
+              <iframe
+                title='agent'
+                src={product.details?.agent}
+                style={{ width: '100%', height: '100%' }}
+              ></iframe>
+            </div>
+          </div>
         </div>
-        <div className="chat-info">
-          <h4>AI Copilot Agent</h4>
-          <span className="status online">Online</span>
-        </div>
-      </div>
-      <div className="chat-iframe">
-        <iframe
-          title='agent'
-          src={product.details?.agent}
-          style={{ width: '100%', height: '100%' }}
-        ></iframe>
-      </div>
-    </div>
-  </div>
-)}
+      )}
 
 
       <Footer />
