@@ -1042,3 +1042,39 @@ html {
 .image-popup-close:hover {
   background: #f0f0f0;
 }
+
+ 
+.agents-grid {
+  display: grid;
+   grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+ 
+.agent-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+  text-align: center;
+}
+ 
+.agent-card:hover {
+  transform: translateY(-5px);
+}
+ 
+.agent-grid-title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: black;
+  transition: color 0.3s ease;
+}
+ 
+.agent-grid-desc{
+    color: black;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    transition: opacity 0.3s ease;
+}
