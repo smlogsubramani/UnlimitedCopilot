@@ -17,7 +17,11 @@ import hospitalityavator from '../assets/images/Hospitality Avatar.png';
 import invoiceagent from '../assets/images/Invoice Agent.png';
 import financialAdvisorImg from '../assets/images/TCW_RebalanceAgent_Architecture.png';
 import marketcomparisonImg from '../assets/images/MarketSmartAlert.png';
-
+import demandAgentImg from '../assets/images/demandAgentImg.png';
+import inventorySupplyAgentImg from '../assets/images/inventoryAgentImg.png';
+import replenishmentAgentImg from '../assets/images/replenishmentAgentImg.png';
+import riskFinanceAgentImg from '../assets/images/riskFinanceAgentImg.png';
+import smartStockAgentImg from '../assets/images/SmartStockAgentImg.png';
 
 import { 
   ArrowRight, 
@@ -29,7 +33,8 @@ import {
   LaptopMinimalCheck,
   PackageOpen,
   Search,
-  Info
+  Info,
+  Warehouse
 } from "lucide-react";
 import Footer from "../components/Footer";
 
@@ -653,7 +658,7 @@ const UseCase = () => {
   id: "14",
   title: "Portfolio Rebalance Agent",
   description: "The Autonomous Orchestrator Agent enables scalable, automated portfolio intelligence by coordinating sub-agents for goal tracking, market stress analysis, rebalancing, and client communication. It operates through scheduled and event-driven workflows, integrating with SQL and ML systems, excluding real-time trading and manual advisory tasks.",
-  link: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_portfolioManagement/webchat?__version__=2",
+  link: "",
   icon: <FileText size={24} />,
   color: "#009688",
   category: "finance",
@@ -688,7 +693,7 @@ const UseCase = () => {
     ],
     image: financialAdvisorImg,
     // flowchart: "Daily Trigger → Fetch Fee Data → Filter Customers (25/50 Days) → Notify Customers → Weekly Trigger → Fetch Data → Filter >60 Days → Group by Manager → Generate CSV → Email Report",
-      agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_portfolioManagement/webchat?__version__=2"
+    agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_portfolioManagement/webchat?__version__=2"
 
   }
 
@@ -735,7 +740,66 @@ const UseCase = () => {
     image: marketcomparisonImg,
     agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_pricingAnalysis/webchat?__version__=2"
   }
+},
+{
+  id: "16",
+  title: "Smart Stock Agent",
+  description: "Smart Stock Agent is an AI-driven steel inventory replenishment orchestrator that coordinates demand planning, inventory availability, and supplier risk intelligence to ensure timely procurement. It analyzes project schedules, validates real-time stock and incoming supply, evaluates supplier reliability and budget feasibility, and recommends optimized purchase actions to prevent shortages, reduce excess inventory, and improve working capital efficiency.",
+  link: "",
+  icon: <Warehouse size={24} />,
+  color: "#2E7D32",
+  category: "supply-chain-optimization",
+  flowUrl: "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/f0cee939fbd649498f749d14fc773390/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EXuIlVSM6TxcC5zlDHO1MX3cvA3ZNHP_TPczu62V5EI",
+  details: {
+    overview: "The Smart Stock Agent autonomously manages steel inventory replenishment by combining AI-driven demand forecasting, real-time inventory validation, supplier risk intelligence, and financial feasibility analysis. It connects Dataverse operational data with AI reasoning to predict material requirements, detect supply risks early, and generate proactive procurement recommendations that optimize stock levels and working capital.",
+    client: "Steel & Construction Firms, Logistics & Warehouse Managers, Financial Planning Teams",
+    challenges: [
+      "Unplanned Material Shortages: Limited demand visibility causes stockouts, project delays, and costly emergency procurement.",
+      "Excess Inventory Holding Costs: Overstocking ties up capital, increases storage expenses, and risks material obsolescence.",
+      "Supplier Reliability Uncertainty: Inconsistent supplier performance disrupts production and project timelines.",
+      "Budget Allocation Inefficiency: Poor financial visibility leads to overspending or delayed procurement approvals.",
+      "Fragmented Operational Data: Disconnected systems across demand, inventory, and finance slow decision-making.",
+      "Reactive Procurement Decisions: Manual planning leads to late purchasing instead of proactive supply management."
+    ],
+    solutions: [
+      "AI-Driven Demand Forecasting: Aligns project schedules with SKU-level material forecasts for precise planning.",
+      "Real-Time Inventory Validation: Combines warehouse stock, open purchase orders, and allocations for accurate availability insights.",
+      "Supplier & Financial Risk Evaluation: Assesses supplier reliability and budget feasibility before recommending purchases.",
+      "Automated Replenishment Recommendations: Generates optimized procurement actions to reduce shortages and improve supply chain responsiveness."
+    ],
+    agents: [
+      {
+        name: "Replenishment Agent",
+        description: "Coordinates demand, inventory, supplier risk, and financial insights to generate intelligent steel procurement recommendations and ensure timely material availability for projects.",
+        image: replenishmentAgentImg
+      },
+      {
+        name: "Demand Agent",
+        description: "Analyzes project material requirements and forecast data to identify upcoming steel demand by SKU and material, ensuring accurate demand visibility.",
+        image: demandAgentImg
+      },
+      {
+        name: "Inventory and Supply Agent",
+        description: "Evaluates real-time stock, incoming purchase orders, and allocated quantities to calculate actual availability and identify material shortages.",
+        image: inventorySupplyAgentImg
+      },
+      {
+        name: "Supplier Risk and Finance Agent",
+        description: "Assesses supplier reliability, lead times, and budget feasibility to determine whether early purchase orders should be recommended.",
+        image: riskFinanceAgentImg
+      }
+    ],
+
+    tools: [
+      "Microsoft Copilot Studio - Build and orchestrate the autonomous replenishment agent.",
+      "Power Automate - Automate workflows, triggers, approvals, and integrations.",
+      "Dataverse - Centralized structured data for projects, inventory, suppliers, and finance.",
+      "AI Agents / LLM Integration - Intelligent demand forecasting, inventory validation, and risk analysis."
+    ],
+    image: smartStockAgentImg
+  }
 }
+
 
 
   ];
