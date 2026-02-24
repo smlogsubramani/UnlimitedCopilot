@@ -52,7 +52,8 @@ const ProductDetails = () => {
     const flowUrls = {
       "14": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/a41ae13c15704796ba28ee39b4bda14a/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=wTOBF80vYy5d4Uxvzmdyi2xxiGuaeYQ-IJE8L4G7w6Q",
       "15": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/37e8aca96a604b13bf711295e970502b/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=x4fjC0WA5i-cqdytZCQoglPgUgvSkcqyGe_yLM-XhHU",
-      "16": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/f0cee939fbd649498f749d14fc773390/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EXuIlVSM6TxcC5zlDHO1MX3cvA3ZNHP_TPczu62V5EI"
+      "16": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/f0cee939fbd649498f749d14fc773390/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EXuIlVSM6TxcC5zlDHO1MX3cvA3ZNHP_TPczu62V5EI",
+      "17": ""
     };
 
     const flowUrl = flowUrls[product.id];
@@ -114,7 +115,7 @@ const ProductDetails = () => {
 
   if (!product) {
     return (
-      <div className={`main-container ${(product.id === "14" || product.id === "15" || product.id === "16") ? "main-container-fullwidth" : ""}`}>
+      <div className={`main-container ${(product.id === "14" || product.id === "15" || product.id === "16" || product.id === "17") ? "main-container-fullwidth" : ""}`}>
         <Navbar />
         <div className="content-column">
           <section className="section">
@@ -179,7 +180,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className={`main-container ${(product.id === "14" || product.id === "15" || product.id === "16") ? "main-container-fullwidth" : ""}`}>
+    <div className={`main-container ${(product.id === "14" || product.id === "15" || product.id === "16" || product.id === "17") ? "main-container-fullwidth" : ""}`}>
       <div className="product-details-shape shape-1"></div>
       <div className="product-details-shape shape-2"></div>
       <div className="product-details-shape shape-3"></div>
@@ -209,7 +210,7 @@ const ProductDetails = () => {
                   >
                     <i className="fas fa-arrow-left"></i> Back to Products
                   </button>
-                  {(product.id === "14" || product.id === "15" || product.id === "16") && (
+                  {(product.id === "14" || product.id === "15" || product.id === "16" ) && (
                     <button
                       className="btn btn-primary"
                       onClick={triggerPowerAutomateFlow}
@@ -331,15 +332,15 @@ const ProductDetails = () => {
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">
-                {product.id === "16" ? "Our Intelligent Agents" : "Our Features"}
+                {product.id === "16" || product.id === "17" ? "Our Intelligent Agents" : "Our Features"}
               </h2>
               <p className="section-subtitle">
-                {product.id === "16"
-                  ? "Four specialized AI agents working together for intelligent stock orchestration"
+                {product.id === "16" || product.id === "17"
+                  ? "Specialized AI agents working together for intelligent orchestration"
                   : "How our AI agent transforms challenges into opportunities"}
               </p>
             </div>
-            {product.id === "16" ? (
+            {product.id === "16" || product.id === "17" ? (
 
               // ✅ AGENTS GRID FOR SMART STOCK AGENT
               <div className="agents-grid">
@@ -680,7 +681,7 @@ const ProductDetails = () => {
         )}
       </div>
 
-      {(product.id !== "14" && product.id !== "15" && product.id !== "16") && (
+      {(product.id !== "14" && product.id !== "15" && product.id !== "16" && product.id !== "17") && (
         <div className="chat-column" id="live-demo">
           <div className="chat-container">
             <div className="chat-header">
