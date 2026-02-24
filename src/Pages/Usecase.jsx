@@ -22,6 +22,13 @@ import inventorySupplyAgentImg from '../assets/images/inventoryAgentImg.png';
 import replenishmentAgentImg from '../assets/images/replenishmentAgentImg.png';
 import riskFinanceAgentImg from '../assets/images/riskFinanceAgentImg.png';
 import smartStockAgentImg from '../assets/images/SmartStockAgentImg.png';
+import vistraPRImg from '../assets/images/vistraPRImg.png';
+import analystAgentImg from '../assets/images/analystAgentImg.png';
+import writerAgentImg from '../assets/images/writerAgentImg.png';
+import creativeStrategistAgentImg from '../assets/images/creativeStrategistAgentImg.png';
+import researcherAgentImg from '../assets/images/researcherAgentImg.png';
+import agencyDirectorImg from '../assets/images/agencyDirectorImg.png';
+import prIntelligenceAgentImg from '../assets/images/prIntelligenceAgentImg.png';
 
 import { 
   ArrowRight, 
@@ -798,10 +805,75 @@ const UseCase = () => {
     ],
     image: smartStockAgentImg
   }
+},
+{
+  id: "17",
+  title: "Vistra PR Intelligence System",
+  description: "The Vistra PR Intelligence System is a multi-agent AI platform built for Vistra Communications that transforms institutional knowledge into a competitive advantage. Five specialised agents — Agency Director, Researcher, Creative Strategist, Writer, and Analyst — work sequentially through natural conversation to predict campaign performance, develop differentiated media angles, and produce journalist-ready content. The system compounds intelligence across every campaign, making each future campaign smarter than the last.",
+  link: "",
+  icon: <FileText size={24} />,
+  color: "#1F3864",
+  category: "pr-communications",
+  flowUrl: "",
+  details: {
+    overview: "The Vistra PR Intelligence System operates like a senior PR colleague — employees chat naturally, the system thinks invisibly, and tasks that once took days now take hours. Built on Vistra's SharePoint case studies, journalist database, and campaign history, it predicts campaign performance, prioritises high-impact actions, and produces campaign-ready outputs through natural conversation.",
+    client: "Vistra Communications — PR Researchers, Creative Strategists, Writers, Agency Directors",
+    challenges: [
+      "Institutional knowledge loss: Critical campaign intelligence lives in inboxes, people's heads, and exit interviews, making it inaccessible when needed most.",
+      "Inconsistent brief quality: Incomplete briefs cause revision cycles and waste senior talent on junior-level quality control.",
+      "Generic angle development: Creative decisions rely on instinct with no historical performance data.",
+      "Manual journalist research: Researchers spend hours building media lists that could be generated in minutes.",
+      "No predictive capability: Campaigns launch without data-driven assessment of likely media pickup probability or coverage risk."
+    ],
+    solutions: [
+      "Predict Before Spending: Creative Strategist scores campaign angles against live media data and historical outcomes to produce a pickup probability score.",
+      "Structured Handoff Chain: Five agents pass structured intelligence documents between them, ensuring the Writer never starts from zero.",
+      "Journalist Intelligence: Researcher queries Vistra's journalist database, verifies beats via live search, and assesses historical response rates.",
+      "Human Gates at Critical Moments: Employees approve angle direction and final package while the system handles intelligence work."
+    ],
+    agents: [
+       {
+        name: "PR Intelligence Agent",
+        description: "Orchestrates all specialised agents, maintains institutional knowledge from past campaigns, and ensures intelligence is compounded across the system for smarter future campaigns.",
+        image: prIntelligenceAgentImg
+      },
+      {
+        name: "Agency Director Agent",
+        description: "Oversees campaign strategy, ensures alignment with client objectives, and approves final outputs.",
+        image: agencyDirectorImg
+      },
+      {
+        name: "Researcher Agent",
+        description: "Analyzes journalist databases, campaign history, and live media trends to generate actionable insights and accurate media lists.",
+        image: researcherAgentImg
+      },
+      {
+        name: "Creative Strategist Agent",
+        description: "Evaluates campaign angles using historical and live media data to recommend high-probability, differentiated strategies.",
+        image: creativeStrategistAgentImg
+      },
+      {
+        name: "Writer Agent",
+        description: "Produces journalist-ready content, press releases, and personalized pitch emails, leveraging structured intelligence from other agents.",
+        image: writerAgentImg
+      },
+      {
+        name: "Analyst Agent",
+        description: "Predicts campaign success using Dataverse ML outputs and provides analytics on media saturation, white space, and response probabilities.",
+        image: analystAgentImg
+      }
+    ],
+    tools: [
+      "Microsoft Copilot Studio — Build and orchestrate the five-agent multi-agent system.",
+      "SharePoint — Central knowledge source for Vistra case studies, journalist profiles, pitch history, and client sensitivity.",
+      "Dataverse — Store and query campaign prediction outputs.",
+      "Bing Web Search — Live media scanning and journalist beat verification.",
+      "QuickChart API — Inline media saturation visualisation within chat.",
+      "Microsoft Teams — Primary interface for employee-agent interactions."
+    ],
+    image: vistraPRImg
+  }
 }
-
-
-
   ];
 
   const filteredProducts = products.filter(product => {
