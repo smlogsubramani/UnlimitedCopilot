@@ -66,7 +66,7 @@ const UseCase = () => {
       id: "01",
       title: "Inventory Management Assistant",
       description: "Enhance inventory operations with AI-powered automation for real-time updates, precise tracking, and seamless supplier coordination.",
-      link: "https://copilotstudio.microsoft.com/environments/0375cafb-8467-ef37-8fb8-2f2452c89515/bots/crd5b_inventoryManagementAssistant/webchat?__version__=2%22",
+      link: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_inventoryManagementAssistant/webchat?__version__=2%22",
       icon: <PackageOpen size={24} />,
       color: "#26C6DA",
       category: "business",
@@ -101,7 +101,7 @@ const UseCase = () => {
         ],
         image: inventoryManagementImg,
         flowchart: "Trigger → AI Analysis → Process → Complete",
-        agent: "https://copilotstudio.microsoft.com/environments/0375cafb-8467-ef37-8fb8-2f2452c89515/bots/crd5b_inventoryManagementAssistant/webchat?__version__=2%22"
+        agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_inventoryManagementAssistant/webchat?__version__=2%22"
       }
     },
     {
