@@ -43,10 +43,13 @@ const ProductDetails = () => {
     setIsImagePopupOpen(!isImagePopupOpen);
   };
 
+  const externalUrls = {
+    "18": "https://your-external-website-link.com"
+  };
+
   // Function to trigger Power Automate flow
   // Function to trigger Power Automate flow
   const triggerPowerAutomateFlow = async () => {
-    setFlowStatus('Triggering flow...');
 
     // Dynamic URL based on product ID
     const flowUrls = {
@@ -55,6 +58,18 @@ const ProductDetails = () => {
       "16": "https://e3ce6a5bed6ee60eaf3e95da640198.13.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/f0cee939fbd649498f749d14fc773390/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EXuIlVSM6TxcC5zlDHO1MX3cvA3ZNHP_TPczu62V5EI",
       "17": ""
     };
+
+    const externalUrls = {
+      "18": "https://voiceagentmf.netlify.app/"
+    };
+
+
+    if (externalUrls[product.id]) {
+      window.open(externalUrls[product.id], '_blank', 'noopener,noreferrer');
+      return;
+    }
+
+    setFlowStatus('Triggering flow...');
 
     const flowUrl = flowUrls[product.id];
     console.log('Triggering flow for URL:', flowUrl);
@@ -115,7 +130,7 @@ const ProductDetails = () => {
 
   if (!product) {
     return (
-      <div className={`main-container ${(product.id === "14" || product.id === "15" || product.id === "16" || product.id === "17") ? "main-container-fullwidth" : ""}`}>
+      <div className={`main-container ${(product.id === "14" || product.id === "15" || product.id === "16" || product.id === "17" || product.id === "18") ? "main-container-fullwidth" : ""}`}>
         <Navbar />
         <div className="content-column">
           <section className="section">
@@ -180,7 +195,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className={`main-container ${(product.id === "14" || product.id === "15" || product.id === "16" || product.id === "17") ? "main-container-fullwidth" : ""}`}>
+    <div className={`main-container ${(product.id === "14" || product.id === "15" || product.id === "16" || product.id === "17" || product.id === "18") ? "main-container-fullwidth" : ""}`}>
       <div className="product-details-shape shape-1"></div>
       <div className="product-details-shape shape-2"></div>
       <div className="product-details-shape shape-3"></div>
@@ -210,13 +225,14 @@ const ProductDetails = () => {
                   >
                     <i className="fas fa-arrow-left"></i> Back to Products
                   </button>
-                  {(product.id === "14" || product.id === "15" || product.id === "16" ) && (
+                  {(product.id === "14" || product.id === "15" || product.id === "16" || product.id === "18") && (
                     <button
                       className="btn btn-primary"
                       onClick={triggerPowerAutomateFlow}
                       style={{ marginLeft: '10px' }}
                     >
-                      <i className="fas fa-play"></i> Trigger Flow
+                      <i className={externalUrls[product.id] ? "fas fa-external-link-alt" : "fas fa-play"}></i>
+                      {externalUrls[product.id] ? "View Demo" : "Trigger Flow"}
                     </button>
                   )}
                 </div>
@@ -359,7 +375,7 @@ const ProductDetails = () => {
                       }}
                     />
                     <h3 className="agent-grid-title">{agent.name}</h3>
-                    <p  className="agent-grid-desc">{agent.description}</p>
+                    <p className="agent-grid-desc">{agent.description}</p>
                   </div>
                 ))}
               </div>
@@ -368,30 +384,16 @@ const ProductDetails = () => {
 
               <div className="solutions-content">
                 <div className="solution-tabs">
-                  <button className="tab-button" data-tab="automation">
-                    <i className="fa-regular fa-hand-point-right"></i>
-                    {product.details?.features[0] || 'Natural Language Search'}
-                  </button>
-                  <button className="tab-button" data-tab="integration">
-                    <i className="fa-regular fa-hand-point-right"></i>
-                    {product.details?.features[1] || 'Multilingual Support'}
-                  </button>
-                  <button className="tab-button" data-tab="support">
-                    <i className="fa-regular fa-hand-point-right"></i>
-                    {product.details?.features[2] || 'Compliance Integration'}
-                  </button>
-                  <button className="tab-button" data-tab="analytics">
-                    <i className="fa-regular fa-hand-point-right"></i>
-                    {product.details?.features[3] || 'Fast Indexing'}
-                  </button>
-                  <button className="tab-button" data-tab="analytics">
-                    <i className="fa-regular fa-hand-point-right"></i>
-                    {product.details?.features[4] || 'Fast Indexing'}
-                  </button>
-                  <button className="tab-button" data-tab="analytics">
-                    <i className="fa-regular fa-hand-point-right"></i>
-                    {product.details?.features[5] || 'Fast Indexing'}
-                  </button>
+                  {product.details?.features?.map((feature, index) => (
+                    <button
+                      key={index}
+                      className="tab-button"
+                      data-tab={`tab-${index}`}
+                    >
+                      <i className="fa-regular fa-hand-point-right"></i>
+                      {feature}
+                    </button>
+                  ))}
                 </div>
                 <br />
                 <div className="tab-content" id="solutions">
@@ -681,7 +683,7 @@ const ProductDetails = () => {
         )}
       </div>
 
-      {(product.id !== "14" && product.id !== "15" && product.id !== "16" && product.id !== "17") && (
+      {(product.id !== "14" && product.id !== "15" && product.id !== "16" && product.id !== "17" && product.id !== "18") && (
         <div className="chat-column" id="live-demo">
           <div className="chat-container">
             <div className="chat-header">
