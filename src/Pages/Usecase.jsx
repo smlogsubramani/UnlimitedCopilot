@@ -29,6 +29,7 @@ import creativeStrategistAgentImg from '../assets/images/creativeStrategistAgent
 import researcherAgentImg from '../assets/images/researcherAgentImg.png';
 import agencyDirectorImg from '../assets/images/agencyDirectorImg.png';
 import prIntelligenceAgentImg from '../assets/images/prIntelligenceAgentImg.png';
+import voiceAgentAISImg from '../assets/images/voiceAgentAIS.png'
 
 import { 
   ArrowRight, 
@@ -41,7 +42,8 @@ import {
   PackageOpen,
   Search,
   Info,
-  Warehouse
+  Warehouse,
+  Mic
 } from "lucide-react";
 import Footer from "../components/Footer";
 
@@ -872,6 +874,46 @@ const UseCase = () => {
       "Microsoft Teams — Primary interface for employee-agent interactions."
     ],
     image: vistraPRImg
+  }
+},
+{
+  id: "18",
+  title: "Voice Agent",
+  description: "An intelligent voice assistant that enables natural, real-time conversations. It captures customer intent, manages session context, and seamlessly escalates to human agents when needed — all tracked in a live analytics dashboard.",
+  link: "https://voiceagentmf.netlify.app/",
+  icon: <Mic size={24} />,
+  color: "#0a73a3",
+  category: "voice-ai",
+  details: {
+    overview: "The AIS Glass Voice Agent is a fully autonomous voice assistant that handles real-time customer calls and responds to product and service queries intelligently. Built with React and powered by an n8n backend with Qdrant vector search, it retrieves accurate answers from a curated knowledge base and delivers them via natural voice. Sessions are tracked end-to-end in Supabase, and a live performance dashboard gives operators full visibility into call volumes, handoff rates, customer intent, and agent workloads.",
+    client: "Customer Service Teams, Operations Managers, Contact Center Supervisors",
+    challenges: [
+      "High volume of repetitive customer queries: Support teams were overwhelmed with routine questions about products, pricing, and services that didn't require human expertise.",
+      "Inconsistent responses: Without a centralised knowledge base, different agents provided varying answers to the same customer questions.",
+      "Slow query resolution: Customers faced long wait times to get answers that could be instantly retrieved from existing documentation.",
+      "Untracked customer interactions: There was no structured way to log call intent, session data, or escalation patterns for operational review."
+    ],
+    solutions: [
+      "AI Voice Assistant with Qdrant Knowledge Base: AI voice assistant capable of attending customer calls, understanding natural language queries, and delivering accurate responses in real time.",
+      "n8n Webhook Orchestration: Every customer utterance is routed through n8n, which handles NLP processing, Qdrant retrieval, and response generation in a seamless automated workflow.",
+      "Intelligent Handoff Detection: When queries exceed the agent's knowledge or require human intervention, the system automatically flags a handoff and routes the session to the appropriate human agent.",
+      "Supabase Session Tracking: All sessions, conversation turns, customer information, and handoff events are persisted in Supabase for full auditability and operational insight.",
+      "Live Analytics Dashboard: A real-time dashboard surfaces call volumes, handoff reasons, customer intent trends, and agent performance — giving supervisors complete operational visibility."
+    ],
+    features: [
+      "Qdrant-backed knowledge retrieval for accurate, context-aware responses to customer queries",
+      "Intelligent handoff to human agents when queries exceed AI capability or needed human intervention",
+      "Full session lifecycle tracking: call start, conversation history, customer info capture, and session closure in Supabase",
+      "Multi-tab analytics dashboard with KPI cards, call volume trends, handoff reasons, and agent roster"
+    ],
+    tools: [
+      "React - Frontend framework for the voice interface and analytics dashboard.",
+      "AI Agents / LLM Integration - To understand and answer user queries",
+      "n8n - Orchestration for NLP processing and response generation.",
+      "Qdrant - Vector database storing AIS Glass knowledge base for semantic query retrieval.",
+      "Supabase - PostgreSQL database for session tracking, chat histories, customer info, handoffs, and agent data."
+    ],
+    image: voiceAgentAISImg
   }
 }
   ];
