@@ -30,6 +30,8 @@ import researcherAgentImg from '../assets/images/researcherAgentImg.png';
 import agencyDirectorImg from '../assets/images/agencyDirectorImg.png';
 import prIntelligenceAgentImg from '../assets/images/prIntelligenceAgentImg.png';
 import voiceAgentAISImg from '../assets/images/voiceAgentAIS.png'
+import aisglassinsights from '../assets/images/aisglassinsights.png';
+import aisglasssales from '../assets/images/aisglasssales.png';
 
 import { 
   ArrowRight, 
@@ -914,6 +916,58 @@ const UseCase = () => {
       "Supabase - PostgreSQL database for session tracking, chat histories, customer info, handoffs, and agent data."
     ],
     image: voiceAgentAISImg
+  }
+},
+{
+  id: "19",
+title: "AIS Sales AI Agent",
+  description: "Automate the end-to-end sales cycle from email order processing and inventory validation to real-time performance analytics for Sales Leaders.",
+  link: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/copilots_header_ddbe3/webchat?__version__=2",
+  icon: null,
+  color: "#1E88E5",
+  category: "business",
+  details: {
+    overview: "The AIS Sales AI Agent is an end-to-end solution designed to transform how sales orders are handled. It automatically reads incoming customer emails, validates stock and production capacity, and handles complex pricing calculations. Beyond data processing, it manages the professional side of sales by generating official branded documents, routing them for internal approval, and sending finalized order confirmations directly to clients—all while providing management with real-time performance insights.",
+    client: [
+      "AIS Glass Sales Teams",
+      "Zone Heads & Regional Managers",
+      "Area Sales Managers (ASMs)",
+      "Executive Management"
+    ],
+   "challenges": [
+      "Manual Order Entry: Processing email orders manually is slow and prone to calculation errors in dimensions and surcharges.",
+      "Validation Delays: Checking real-time inventory and production line availability across different warehouse locations is time-consuming.",
+      "Administrative Bottlenecks: Manually drafting order documents, waiting for approvals, and emailing clients creates delays in the sales cycle.",
+      "Reporting Overhead: Manually generating charts and performance rankings for dealers and ASMs delays decision-making.",
+      "Limited Pipeline Visibility: Sales leaders struggle to identify and prioritize high-value quotations (over ₹15 Lakhs) that are buried in manual spreadsheets.",
+      "Credit & Payment Risks: Identifying customers with high outstanding balances or poor credit ratings during the ordering process is difficult, leading to potential financial delays."
+    ],
+    solutions: [
+      "<strong>Smart Order Processing</strong>: Instantly reads customer emails to extract order details, checking them against live inventory and production schedules.",
+      "<strong>Automated Document Creation</strong>: Effortlessly transforms order data into professionally formatted PDF documents using official company templates.",
+      "<strong>Integrated Approval Workflow</strong>: Automatically routes finalized quotes to the right managers for digital sign-off, ensuring no order is delayed in an inbox.",
+      "<strong>Seamless Client Communication</strong>: Once approved, the agent automatically sends a formal order confirmation email with the attached PDF to the customer.",
+      "<strong>Executive Dashboards</strong>: Provides instant visual charts on Sales, OBK, and ORP performance to help leaders make data-driven decisions."
+    ],
+    features: [
+      "AI-Powered Email Data Extraction",
+      "Real-time Inventory & Production Slot Verification",
+      "Automatic Branded PDF Document Generation",
+      "One-Click Managerial Approval System",
+      "Automated Client Confirmation Emails",
+      "Sales vs. Plan Performance Visualizations",
+      "Pipeline Opportunity Alerts (>₹15L)"
+    ],
+    tools: [
+      "Microsoft Copilot Studio – For the core conversational interface and agent logic.",
+      "Power Automate (AISsalesFlow) – To drive document generation, approval routing, and email automation.",
+      "Microsoft Dataverse – For managing Production, Price, and Inventory records.",
+      "Word Online Integration – For filling document templates and PDF conversion.",
+      "QuickChart API – For generating dynamic visual performance charts."
+    ],
+    images: [aisglassinsights, aisglasssales],
+    flowchart: "Email Received → Order Validation → Document Generation → Manager Approval → Client Confirmation Sent",
+    agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/copilots_header_ddbe3/webchat?__version__=2"
   }
 }
   ];

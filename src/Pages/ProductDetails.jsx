@@ -9,7 +9,7 @@ const ProductDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const product = location.state?.product;
-  const [isImagePopupOpen, setIsImagePopupOpen] = useState(false); // State for image popup
+  const [popupImage, setPopupImage] = useState(null); // URL of the image to show in popup (null = closed)
   const [flowStatus, setFlowStatus] = useState(null); // State to track flow trigger status
 
   // Scroll to top on component mount
@@ -38,10 +38,13 @@ const ProductDetails = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Toggle image popup
-  const toggleImagePopup = () => {
-    setIsImagePopupOpen(!isImagePopupOpen);
+  // Open/close image popup
+  const openImagePopup = (img) => {
+    const defaultImg = product?.details?.image || 'https://assets.website-files.com/62fcdf037b1adc93af4e4cff/6356816eee9bd33825544e45_flowchart-2.png';
+    setPopupImage(img || defaultImg);
   };
+
+  const closeImagePopup = () => setPopupImage(null);
 
   const externalUrls = {
     "18": "https://your-external-website-link.com"
@@ -634,42 +637,66 @@ const ProductDetails = () => {
                 {renderAsBullets(product.details?.tools, 'tools')}
                 <div className="demo-stats">
                   <div className="demo-stat">
-                    <span className="stat-number">0</span>
-                    <span className="stat-label">Conversations</span>
+                    <span className="stat-number"></span><br /><br />
+                    <span className="stat-label"></span><br />
                   </div>
                   <div className="demo-stat">
-                    <span className="stat-number">&lt; 2s</span>
-                    <span className="stat-label">Avg Response</span>
+                    <span className="stat-number"></span>
+                    <span className="stat-label"></span><br />
                   </div>
                 </div>
               </div>
               <div className="demo-visual">
                 <h3 className="section-title" style={{ textAlign: 'left' }}>Process Flow</h3>
-                <img
-                  src={product.details?.image || 'https://assets.website-files.com/62fcdf037b1adc93af4e4cff/6356816eee9bd33825544e45_flowchart-2.png'}
-                  alt={`${product.title} Process Flow`}
-                  className="process-image fade-in clickable-image"
-                  style={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    border: '1px solid #dadce0',
-                    marginTop: '20px',
-                    cursor: 'pointer'
-                  }}
-                  onClick={toggleImagePopup}
-                />
+
+                {product.details?.images && product.details.images.length > 0 ? (
+                  // Multi-image layout (e.g. Sales Agent)
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '20px' }}>
+                    {product.details.images.map((img, index) => (
+                      <img
+                        key={index}
+                        src={img}
+                        alt={`${product.title} Process Flow ${index + 1}`}
+                        className="process-image fade-in clickable-image"
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          border: '1px solid #dadce0',
+                          cursor: 'pointer'
+                        }}
+                        onClick={() => openImagePopup(img)}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  // Single image layout (all other products)
+                  <img
+                    src={product.details?.image || 'https://assets.website-files.com/62fcdf037b1adc93af4e4cff/6356816eee9bd33825544e45_flowchart-2.png'}
+                    alt={`${product.title} Process Flow`}
+                    className="process-image fade-in clickable-image"
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                      borderRadius: '8px',
+                      border: '1px solid #dadce0',
+                      marginTop: '20px',
+                      cursor: 'pointer'
+                    }}
+                    onClick={() => openImagePopup(product.details?.image)}
+                  />
+                )}
               </div>
             </div>
           </div>
         </section>
 
-        {isImagePopupOpen && (
-          <div className="image-popup-overlay" onClick={toggleImagePopup}>
+        {popupImage && (
+          <div className="image-popup-overlay" onClick={closeImagePopup}>
             <div className="image-popup-content" onClick={(e) => e.stopPropagation()}>
-              <button className="image-popup-close" onClick={toggleImagePopup}>×</button>
+              <button className="image-popup-close" onClick={closeImagePopup}>×</button>
               <img
-                src={product.details?.image || 'https://assets.website-files.com/62fcdf037b1adc93af4e4cff/6356816eee9bd33825544e45_flowchart-2.png'}
+                src={popupImage}
                 alt={`${product.title} Process Flow Enlarged`}
                 className="image-popup"
                 style={{
