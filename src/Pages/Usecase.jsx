@@ -812,16 +812,16 @@ const UseCase = () => {
 },
 {
   id: "17",
-  title: "Vistra PR Intelligence System",
-  description: "The Vistra PR Intelligence System is a multi-agent AI platform built for Vistra Communications that transforms institutional knowledge into a competitive advantage. Five specialised agents — Agency Director, Researcher, Creative Strategist, Writer, and Analyst — work sequentially through natural conversation to predict campaign performance, develop differentiated media angles, and produce journalist-ready content. The system compounds intelligence across every campaign, making each future campaign smarter than the last.",
+  title: "PR Intelligence Agent",
+  description: "The PR Intelligence Agent is a multi-agent AI platform built for a PR and Communications company that transforms institutional knowledge into a competitive advantage. Five specialised agents — Agency Director, Researcher, Creative Strategist, Writer, and Analyst — work sequentially through natural conversation to predict campaign performance, develop differentiated media angles, and produce journalist-ready content. The system compounds intelligence across every campaign, making each future campaign smarter than the last.",
   link: "",
   icon: <FileText size={24} />,
   color: "#1F3864",
   category: "pr-communications",
   flowUrl: "",
   details: {
-    overview: "The Vistra PR Intelligence System operates like a senior PR colleague — employees chat naturally, the system thinks invisibly, and tasks that once took days now take hours. Built on Vistra's SharePoint case studies, journalist database, and campaign history, it predicts campaign performance, prioritises high-impact actions, and produces campaign-ready outputs through natural conversation.",
-    client: "Vistra Communications — PR Researchers, Creative Strategists, Writers, Agency Directors",
+    overview: "The PR Intelligence Agent operates like a senior PR colleague — employees chat naturally, the system thinks invisibly, and tasks that once took days now take hours. Built on Vistra's SharePoint case studies, journalist database, and campaign history, it predicts campaign performance, prioritises high-impact actions, and produces campaign-ready outputs through natural conversation.",
+    client: "PR and communications Company",
     challenges: [
       "Institutional knowledge loss: Critical campaign intelligence lives in inboxes, people's heads, and exit interviews, making it inaccessible when needed most.",
       "Inconsistent brief quality: Incomplete briefs cause revision cycles and waste senior talent on junior-level quality control.",
@@ -832,7 +832,7 @@ const UseCase = () => {
     solutions: [
       "Predict Before Spending: Creative Strategist scores campaign angles against live media data and historical outcomes to produce a pickup probability score.",
       "Structured Handoff Chain: Five agents pass structured intelligence documents between them, ensuring the Writer never starts from zero.",
-      "Journalist Intelligence: Researcher queries Vistra's journalist database, verifies beats via live search, and assesses historical response rates.",
+      "Journalist Intelligence: Researcher queries company's journalist database, verifies beats via live search, and assesses historical response rates.",
       "Human Gates at Critical Moments: Employees approve angle direction and final package while the system handles intelligence work."
     ],
     agents: [
@@ -869,7 +869,7 @@ const UseCase = () => {
     ],
     tools: [
       "Microsoft Copilot Studio — Build and orchestrate the five-agent multi-agent system.",
-      "SharePoint — Central knowledge source for Vistra case studies, journalist profiles, pitch history, and client sensitivity.",
+      "SharePoint — Central knowledge source for internal case studies, journalist profiles, pitch history, and client sensitivity.",
       "Dataverse — Store and query campaign prediction outputs.",
       "Bing Web Search — Live media scanning and journalist beat verification.",
       "QuickChart API — Inline media saturation visualisation within chat.",
