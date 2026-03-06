@@ -112,7 +112,7 @@ const UseCase = () => {
       id: "02",
       title: "Customer Support Automation Assistant",
       description: "Deliver autonomous, AI-driven customer support that intelligently manages queries across multiple departments.",
-      link: "https://copilotstudio.microsoft.com/environments/Default-008502d6-3f79-46f0-ab37-9354e3fe80ff/bots/cr28f_agent1_KK3RZL/canvas?__version__=2&enableFileAttachment=true",
+      link: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/auto_agent_pSTQD/webchat?__version__=2%22&enableFileAttachment=true",
       icon: <Headphones size={24} />,
       color: "#FFA726",
       category: "business",
@@ -152,7 +152,7 @@ const UseCase = () => {
         ],
         image: customerSupportImg,
         flowchart: "Customer → Digital Form → Copilot Studio (Triage) → SharePoint Ticket Creation → AI Builder Classification → Power Automate Assignment → Officer Resolves (via SharePoint) → Customer Notified via Outlook",
-        agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/crd5b_customerInquiryClarifier/webchat?__version__=2"
+        agent: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/auto_agent_pSTQD/webchat?__version__=2%22&enableFileAttachment=true"
       }
     },
     {
