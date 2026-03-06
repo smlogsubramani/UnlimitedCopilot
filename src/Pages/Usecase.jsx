@@ -887,7 +887,7 @@ const UseCase = () => {
   color: "#0a73a3",
   category: "voice-ai",
   details: {
-    overview: "The AIS Glass Voice Agent is a fully autonomous voice assistant that handles real-time customer calls and responds to product and service queries intelligently. Built with React and powered by an n8n backend with Qdrant vector search, it retrieves accurate answers from a curated knowledge base and delivers them via natural voice. Sessions are tracked end-to-end in Supabase, and a live performance dashboard gives operators full visibility into call volumes, handoff rates, customer intent, and agent workloads.",
+    overview: "The Glass Voice Agent is a fully autonomous voice assistant that handles real-time customer calls and responds to product and service queries intelligently. Built with React and powered by an n8n backend with Qdrant vector search, it retrieves accurate answers from a curated knowledge base and delivers them via natural voice. Sessions are tracked end-to-end in Supabase, and a live performance dashboard gives operators full visibility into call volumes, handoff rates, customer intent, and agent workloads.",
     client: "Customer Service Teams, Operations Managers, Contact Center Supervisors",
     challenges: [
       "High volume of repetitive customer queries: Support teams were overwhelmed with routine questions about products, pricing, and services that didn't require human expertise.",
@@ -912,7 +912,7 @@ const UseCase = () => {
       "React - Frontend framework for the voice interface and analytics dashboard.",
       "AI Agents / LLM Integration - To understand and answer user queries",
       "n8n - Orchestration for NLP processing and response generation.",
-      "Qdrant - Vector database storing AIS Glass knowledge base for semantic query retrieval.",
+      "Qdrant - Vector database storing Glass knowledge base for semantic query retrieval.",
       "Supabase - PostgreSQL database for session tracking, chat histories, customer info, handoffs, and agent data."
     ],
     image: voiceAgentAISImg
