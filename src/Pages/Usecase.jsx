@@ -920,16 +920,16 @@ const UseCase = () => {
 },
 {
   id: "19",
-title: "AIS Sales AI Agent",
+title: "Sales AI Agent",
   description: "Automate the end-to-end sales cycle from email order processing and inventory validation to real-time performance analytics for Sales Leaders.",
   link: "https://copilotstudio.microsoft.com/environments/e3ce6a5b-ed6e-e60e-af3e-95da64019813/bots/copilots_header_ddbe3/webchat?__version__=2",
-  icon: null,
+  icon: <Warehouse size={24} />,
   color: "#1E88E5",
   category: "business",
   details: {
-    overview: "The AIS Sales AI Agent is an end-to-end solution designed to transform how sales orders are handled. It automatically reads incoming customer emails, validates stock and production capacity, and handles complex pricing calculations. Beyond data processing, it manages the professional side of sales by generating official branded documents, routing them for internal approval, and sending finalized order confirmations directly to clients—all while providing management with real-time performance insights.",
+    overview: "The Sales AI Agent is an end-to-end solution designed to transform how sales orders are handled. It automatically reads incoming customer emails, validates stock and production capacity, and handles complex pricing calculations. Beyond data processing, it manages the professional side of sales by generating official branded documents, routing them for internal approval, and sending finalized order confirmations directly to clients—all while providing management with real-time performance insights.",
     client: [
-      "AIS Glass Sales Teams",
+      "Glass Sales Teams",
       "Zone Heads & Regional Managers",
       "Area Sales Managers (ASMs)",
       "Executive Management"
@@ -960,7 +960,7 @@ title: "AIS Sales AI Agent",
     ],
     tools: [
       "Microsoft Copilot Studio – For the core conversational interface and agent logic.",
-      "Power Automate (AISsalesFlow) – To drive document generation, approval routing, and email automation.",
+      "Power Automate (SalesFlow) – To drive document generation, approval routing, and email automation.",
       "Microsoft Dataverse – For managing Production, Price, and Inventory records.",
       "Word Online Integration – For filling document templates and PDF conversion.",
       "QuickChart API – For generating dynamic visual performance charts."
